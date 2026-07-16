@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -761,6 +761,21 @@ function kpiCard(label, real, yoyOrPlan, varVal, fmt, subLabel) {
       <div class="kpi-label">Tx. Sessão → Matrícula</div>
       <div class="kpi-value">${fmtPct(c.txSessMatr, 3)}</div>
       <div class="kpi-sub"><span>Funil completo</span></div>
+    </div>` +
+    `<div class="kpi">
+      <div class="kpi-label">Aderência a Leads</div>
+      <div class="kpi-value">${fmtPct(c.aderLeads)}</div>
+      <div class="kpi-sub"><span>Real ÷ Planejado rateado</span></div>
+    </div>` +
+    `<div class="kpi">
+      <div class="kpi-label">Investimento Planejado</div>
+      <div class="kpi-value">${fmtMoney(c.investPlan)}</div>
+      <div class="kpi-sub"><span>Rateado até a data</span></div>
+    </div>` +
+    `<div class="kpi">
+      <div class="kpi-label">Unidades Analisadas</div>
+      <div class="kpi-value">${fmtInt(c.unidades)}</div>
+      <div class="kpi-sub"><span>Total na base do período</span></div>
     </div>`;
 })();
 
