@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Análise Comparativa de Mídia</title>
+<title>Reports Marista — Mídia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root {
     --paper: #FAFBFC;
@@ -20,26 +19,9 @@
     --line-strong: #C5CAD4;
     --good: #1E7A4C;
     --good-bg: #E8F5EE;
-    --bad: #B23A2E;
-    --bad-bg: #FBEAE8;
-    --warn: #9C6B12;
-    --warn-bg: #FBF1DF;
-
-    --cluster-azul: #2B6CB0;
-    --cluster-azul-bg: #E6F0FA;
-    --cluster-laranja: #C2570C;
-    --cluster-laranja-bg: #FCEADD;
-    --cluster-esmeralda: #1A8762;
-    --cluster-esmeralda-bg: #E2F5ED;
-    --cluster-amarelo: #A8870A;
-    --cluster-amarelo-bg: #FBF3D9;
-    --cluster-sem: #6B7180;
-    --cluster-sem-bg: #EEEFF2;
-
     --serif: 'Source Serif 4', Georgia, serif;
     --sans: 'Inter', -apple-system, sans-serif;
-
-    --radius: 6px;
+    --radius: 8px;
   }
 
   * { box-sizing: border-box; }
@@ -56,7 +38,7 @@
   }
 
   .wrap {
-    max-width: 1180px;
+    max-width: 980px;
     margin: 0 auto;
     padding: 0 32px 80px;
   }
@@ -64,14 +46,8 @@
   /* ---------- MASTHEAD ---------- */
   .masthead {
     border-bottom: 3px solid var(--ink);
-    padding: 36px 0 20px;
-    margin-bottom: 28px;
-  }
-  .masthead-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
+    padding: 48px 0 24px;
+    margin-bottom: 40px;
   }
   .eyebrow {
     font-family: var(--sans);
@@ -85,87 +61,42 @@
   .masthead h1 {
     font-family: var(--serif);
     font-weight: 700;
-    font-size: 36px;
+    font-size: 40px;
     line-height: 1.1;
-    margin: 0;
+    margin: 0 0 10px;
     color: var(--ink);
     letter-spacing: -0.01em;
   }
-  .masthead-meta {
-    text-align: right;
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    white-space: nowrap;
-    padding-top: 6px;
-  }
-  .masthead-meta strong { color: var(--ink); font-weight: 600; }
-  .masthead-meta .gen {
-    margin-top: 4px;
-    font-size: 11px;
-    color: var(--ink-faint);
-  }
-
-  /* ---------- HEADLINE ALERT (the signature element) ---------- */
-  .headline-bar {
-    margin: 24px 0 32px;
-    border: 1px solid var(--line-strong);
-    border-left: 4px solid var(--bad);
-    background: linear-gradient(to right, var(--bad-bg) 0%, var(--paper) 55%);
-    border-radius: var(--radius);
-    padding: 18px 22px;
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
-  }
-  .headline-bar .tag {
-    font-size: 10.5px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--bad);
-    background: #fff;
-    border: 1px solid var(--bad);
-    border-radius: 3px;
-    padding: 3px 8px;
-    white-space: nowrap;
-    margin-top: 2px;
-  }
-  .headline-bar p {
+  .masthead p {
     margin: 0;
     font-size: 14.5px;
-    color: var(--ink);
-  }
-  .headline-bar strong { font-weight: 700; }
-
-  /* ---------- TABS ---------- */
-  .tabs {
-    display: flex;
-    gap: 4px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 28px;
-  }
-  .tab-btn {
-    font-family: var(--sans);
-    font-size: 13.5px;
-    font-weight: 600;
     color: var(--ink-soft);
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    padding: 10px 18px 12px;
-    cursor: pointer;
-    transition: color 0.15s ease;
+    max-width: 560px;
   }
-  .tab-btn:hover { color: var(--ink); }
-  .tab-btn.active {
-    color: var(--brand);
-    border-bottom-color: var(--brand);
-  }
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; animation: fadein 0.25s ease; }
-  @keyframes fadein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* ---------- SECTION LABELS ---------- */
+  /* ---------- SEARCH ---------- */
+  .search-box {
+    margin-bottom: 36px;
+  }
+  .search-box input {
+    width: 100%;
+    font-family: var(--sans);
+    font-size: 14px;
+    padding: 12px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  .search-box input:focus { border-color: var(--brand); }
+  .search-box input::placeholder { color: var(--ink-faint); }
+
+  /* ---------- SECTION ---------- */
+  .section {
+    margin-bottom: 40px;
+  }
   .section-label {
     font-family: var(--sans);
     font-size: 11px;
@@ -176,1111 +107,214 @@
     margin: 0 0 14px;
     padding-bottom: 8px;
     border-bottom: 1px solid var(--line);
-  }
-
-  /* ---------- KPI GRID ---------- */
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-bottom: 32px;
-  }
-  .kpi {
-    background: #fff;
-    padding: 18px 20px;
-  }
-  .kpi-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 8px;
-  }
-  .kpi-value {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.1;
-    margin-bottom: 6px;
-  }
-  .kpi-sub {
-    font-size: 12px;
-    color: var(--ink-soft);
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
   }
-  .delta {
-    font-weight: 700;
-    padding: 1px 6px;
-    border-radius: 3px;
-    font-size: 11.5px;
+  .section-label .count {
+    font-weight: 600;
+    color: var(--ink-faint);
+    background: var(--paper-dim);
+    border-radius: 10px;
+    padding: 1px 8px;
+    font-size: 10.5px;
   }
-  .delta.pos { color: var(--good); background: var(--good-bg); }
-  .delta.neg { color: var(--bad); background: var(--bad-bg); }
-  .delta.flat { color: var(--ink-soft); background: var(--paper-dim); }
 
-  /* ---------- CHART CARDS ---------- */
-  .chart-row {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 20px;
-    margin-bottom: 32px;
+  /* ---------- REPORT CARD ---------- */
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   .card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
     background: #fff;
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 20px 22px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .card h3 {
-    font-family: var(--sans);
-    font-size: 13.5px;
-    font-weight: 700;
-    color: var(--ink);
-    margin: 0 0 2px;
+  .card:hover {
+    border-color: var(--brand-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(43, 69, 112, 0.08);
   }
-  .card .card-sub {
-    font-size: 11.5px;
-    color: var(--ink-faint);
-    margin: 0 0 16px;
-  }
-  .chart-box { position: relative; height: 260px; }
-
-  /* ---------- FUNNEL (signature) ---------- */
-  .funnel-stage {
-    display: grid;
-    grid-template-columns: 90px 1fr 70px;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  .funnel-stage:last-child { margin-bottom: 0; }
-  .funnel-name { font-size: 12.5px; font-weight: 600; color: var(--ink-soft); }
-  .funnel-track {
-    height: 26px;
-    background: var(--paper-dim);
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-  }
-  .funnel-fill {
-    position: absolute;
-    top: 0; left: 0; bottom: 0;
-    background: var(--brand);
-    border-radius: 4px;
-    transition: width 0.6s ease;
-  }
-  .funnel-fill.stage-1 { background: var(--brand); }
-  .funnel-fill.stage-2 { background: var(--brand-light); }
-  .funnel-fill.stage-3 { background: #7C93B5; }
-  .funnel-fill.stage-4 { background: #A9BBD4; }
-  .funnel-fill.stage-5 { background: var(--ink-faint); }
-  .funnel-val { font-size: 13px; font-weight: 700; text-align: right; color: var(--ink); }
-  .funnel-rate {
-    font-size: 10.5px;
-    color: var(--ink-faint);
-    text-align: center;
-    margin: -6px 0 14px;
-  }
-
-  /* ---------- TABLE ---------- */
-  .table-scroll-wrap { position: relative; }
-  .scroll-hint {
+  .card-icon {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    background: var(--cluster-azul-bg);
-    border: 1px solid var(--cluster-azul);
-    border-radius: var(--radius) var(--radius) 0 0;
-    padding: 8px 14px;
-    font-size: 12px;
-    color: var(--brand);
-    margin-bottom: -1px;
-  }
-  .scroll-hint-btns { display: flex; gap: 6px; flex-shrink: 0; }
-  .scroll-btn {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    border: 1px solid var(--cluster-azul);
-    background: #fff;
-    color: var(--brand);
-    font-size: 15px;
-    line-height: 1;
-    cursor: pointer;
-  }
-  .scroll-btn:hover { background: var(--brand); color: #fff; }
-  thead th.sticky-col, tbody td.sticky-col {
-    position: sticky;
-    left: 0;
-    z-index: 5;
-    background: var(--paper-dim);
-    box-shadow: 2px 0 4px rgba(0,0,0,0.06);
-  }
-  tbody td.sticky-col { background: #fff; }
-  tbody tr:hover td.sticky-col { background: var(--paper-dim); }
-  .table-scroll {
-    overflow-x: auto;
-    border: 1px solid var(--line);
-    border-radius: 0 0 var(--radius) var(--radius);
-    scrollbar-width: thin;
-    scrollbar-color: var(--line-strong) var(--paper-dim);
-  }
-  .table-scroll::-webkit-scrollbar { height: 10px; }
-  .table-scroll::-webkit-scrollbar-track { background: var(--paper-dim); }
-  .table-scroll::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 6px; }
-  .table-scroll::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
-  .scroll-fade {
-    position: absolute;
-    top: 0; right: 1px; bottom: 10px;
-    width: 34px;
-    background: linear-gradient(to right, rgba(250,251,252,0), rgba(250,251,252,0.97));
-    pointer-events: none;
-    border-radius: 0 var(--radius) var(--radius) 0;
-    opacity: 0;
-    transition: opacity 0.15s ease;
-  }
-  .scroll-fade.show { opacity: 1; }
-  table { width: 100%; border-collapse: collapse; font-size: 12.5px; white-space: nowrap; }
-  thead th {
-    background: var(--paper-dim);
-    font-size: 10.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    color: var(--ink-soft);
-    text-align: right;
-    padding: 9px 10px;
-    border-bottom: 1px solid var(--line-strong);
-    position: sticky;
-    top: 0;
-  }
-  thead th:first-child, thead th:nth-child(2) { text-align: left; }
-  tbody td {
-    padding: 8px 10px;
-    text-align: right;
-    border-bottom: 1px solid var(--line);
-    color: var(--ink);
-  }
-  tbody td:first-child, tbody td:nth-child(2) { text-align: left; }
-  tbody tr:hover { background: var(--paper-dim); }
-  tbody tr:last-child td { border-bottom: none; }
-  .unit-name { font-weight: 600; }
-  .unit-sigla { color: var(--ink-faint); font-size: 11px; }
-
-  .cluster-chip {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 3px;
-    letter-spacing: 0.02em;
-  }
-  .chip-azul { color: var(--cluster-azul); background: var(--cluster-azul-bg); }
-  .chip-laranja { color: var(--cluster-laranja); background: var(--cluster-laranja-bg); }
-  .chip-esmeralda { color: var(--cluster-esmeralda); background: var(--cluster-esmeralda-bg); }
-  .chip-amarelo { color: var(--cluster-amarelo); background: var(--cluster-amarelo-bg); }
-  .chip-sem { color: var(--cluster-sem); background: var(--cluster-sem-bg); }
-
-  .canal-chip {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--ink-soft);
-  }
-
-  .na { color: var(--ink-faint); font-style: italic; font-weight: 400; }
-
-  /* ---------- CLUSTER FILTER PILLS ---------- */
-  .pill-row { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
-  .pill {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 16px;
-    border: 1px solid var(--line-strong);
-    background: #fff;
-    color: var(--ink-soft);
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-  .pill:hover { border-color: var(--brand); color: var(--brand); }
-  .pill.active { background: var(--ink); color: #fff; border-color: var(--ink); }
-
-  /* ---------- CLUSTER CARDS (cluster tab) ---------- */
-  .cluster-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-    margin-bottom: 28px;
-  }
-  .cluster-card {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-  .cluster-card-head {
-    padding: 14px 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--line);
-  }
-  .cluster-card-head h4 {
-    margin: 0;
-    font-family: var(--serif);
-    font-size: 17px;
-    font-weight: 700;
-  }
-  .cluster-card-body { padding: 16px 18px; }
-  .mini-stat-row {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-  }
-  .mini-stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-faint); margin-bottom: 3px; }
-  .mini-stat-value { font-size: 16px; font-weight: 700; font-family: var(--serif); }
-
-  /* ---------- TOOLTIP (info icon on KPI cards) ---------- */
-  .kpi-label-row {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 8px;
-  }
-  .kpi-label-row .kpi-label { margin-bottom: 0; }
-  .info-tip {
-    position: relative;
-    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--line-strong);
-    color: #fff;
-    font-size: 9.5px;
-    font-weight: 700;
-    font-style: normal;
-    cursor: help;
-    flex-shrink: 0;
-  }
-  .info-tip:hover { background: var(--brand); }
-  .global-tooltip {
-    position: fixed;
-    max-width: 280px;
-    background: var(--ink);
-    color: #fff;
-    font-size: 11.5px;
-    font-weight: 400;
-    line-height: 1.5;
-    padding: 10px 12px;
-    border-radius: 5px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.22);
-    z-index: 1000;
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.12s ease;
-  }
-  .global-tooltip.show { opacity: 1; visibility: visible; }
-
-  /* ---------- TABLE CELL: value + YoY delta stacked ---------- */
-  .cell-main { font-weight: 600; }
-  .cell-delta { margin-top: 2px; }
-  .cell-delta .delta { font-size: 10px; padding: 0 5px; }
-
-  /* ---------- ANALYSIS TEXT SLOT ---------- */
-  .analysis-slot {
-    background: #fff;
-    border: 1px solid var(--line-strong);
-    border-radius: var(--radius);
-    margin-top: 8px;
-  }
-  .analysis-slot-head {
-    padding: 14px 22px;
-    border-bottom: 1px dashed var(--line-strong);
-    background: var(--paper-dim);
-    border-radius: var(--radius) var(--radius) 0 0;
-  }
-  .analysis-slot-head h3 {
-    margin: 0 0 2px;
     font-family: var(--serif);
-    font-size: 17px;
     font-weight: 700;
+    font-size: 15px;
   }
-  .analysis-slot-head p { margin: 0; font-size: 12px; color: var(--ink-faint); }
-  .analysis-body {
-    padding: 22px;
-    min-height: 160px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--ink);
-  }
-  .analysis-body[contenteditable]:focus { outline: none; }
-  .analysis-body p { margin: 0 0 12px; }
-  .analysis-body p:last-child { margin-bottom: 0; }
-  .analysis-body strong { color: var(--ink); }
-  .analysis-placeholder { color: var(--ink-faint); font-style: italic; }
-  .analysis-body h4 {
-    font-family: var(--sans);
-    font-size: 11.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--brand);
-    margin: 18px 0 6px;
-  }
-  .analysis-body h4:first-child { margin-top: 0; }
-  .analysis-body ul { margin: 0 0 12px; padding-left: 20px; }
-  .analysis-body li { margin-bottom: 5px; }
-
-  .slot-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    padding: 12px 22px;
-    border-top: 1px solid var(--line);
-  }
-  .slot-btn {
-    font-family: var(--sans);
-    font-size: 12px;
+  .card-icon.semanal { background: #E6F0FA; color: var(--brand); }
+  .card-icon.mensal { background: #E2F5ED; color: var(--good); }
+  .card-body { flex: 1 1 auto; min-width: 0; }
+  .card-title {
+    font-family: var(--serif);
     font-weight: 600;
-    padding: 7px 14px;
-    border-radius: 4px;
-    border: 1px solid var(--line-strong);
-    background: #fff;
-    color: var(--ink-soft);
-    cursor: pointer;
+    font-size: 16px;
+    color: var(--ink);
+    margin: 0 0 3px;
   }
-  .slot-btn:hover { border-color: var(--ink-soft); color: var(--ink); }
-  .slot-btn.primary { background: var(--brand); color: #fff; border-color: var(--brand); }
-  .slot-btn.primary:hover { background: var(--brand-light); border-color: var(--brand-light); }
+  .card-period {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .card-latest {
+    flex: 0 0 auto;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--good);
+    background: var(--good-bg);
+    border-radius: 3px;
+    padding: 3px 8px;
+  }
+  .card-arrow {
+    flex: 0 0 auto;
+    color: var(--ink-faint);
+    font-size: 18px;
+    transition: transform 0.15s ease;
+  }
+  .card:hover .card-arrow { transform: translateX(3px); color: var(--brand); }
+
+  .empty-state {
+    font-size: 13px;
+    color: var(--ink-faint);
+    padding: 20px 0;
+  }
 
   footer {
-    margin-top: 40px;
+    margin-top: 60px;
     padding-top: 20px;
     border-top: 1px solid var(--line);
-    font-size: 11px;
+    font-size: 11.5px;
     color: var(--ink-faint);
-    text-align: center;
-  }
-
-  @media (max-width: 860px) {
-    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-    .chart-row { grid-template-columns: 1fr; }
-    .cluster-grid { grid-template-columns: 1fr; }
-    .masthead-top { flex-direction: column; }
-    .masthead-meta { text-align: left; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header class="masthead">
-    <div class="masthead-top">
-      <div>
-        <p class="eyebrow">Status Semanal de Mídia</p>
-        <h1>Análise Comparativa de Performance</h1>
-      </div>
-      <div class="masthead-meta">
-        Período: <strong id="meta-periodo">—</strong><br>
-        <span id="meta-yoy"></span>
-        <div class="gen">Gerado em <span id="meta-gerado">—</span></div>
-      </div>
-    </div>
-  </header>
+  <div class="masthead">
+    <p class="eyebrow">Marista · Mídia de Performance</p>
+    <h1>Central de Reports</h1>
+    <p>Todos os relatórios semanais e mensais de investimento, leads e matrículas, organizados por período. Clique em qualquer item para abrir o report completo.</p>
+  </div>
 
-  <div id="headline-slot"></div>
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Buscar por período (ex: julho, semanal, mensal)...">
+  </div>
 
-  <nav class="tabs">
-    <button class="tab-btn active" data-tab="consolidado">Consolidado</button>
-    <button class="tab-btn" data-tab="cluster">Por Cluster</button>
-    <button class="tab-btn" data-tab="unidade">Por Unidade</button>
-  </nav>
+  <div id="sections"></div>
 
-  <!-- ===================== CONSOLIDADO ===================== -->
-  <section class="tab-panel active" id="panel-consolidado">
-    <p class="section-label">Visão Geral — Todas as Unidades</p>
-    <div class="kpi-grid" id="kpi-consolidado"></div>
-
-    <div class="chart-row">
-      <div class="card">
-        <h3>Investimento &amp; Sessões — Real vs. Planejado vs. YoY</h3>
-        <p class="card-sub">Comparação consolidada do período</p>
-        <div class="chart-box"><canvas id="chart-consolidado-bars"></canvas></div>
-      </div>
-      <div class="card">
-        <h3>Funil de Conversão</h3>
-        <p class="card-sub">Sessão → Lead → Matrícula</p>
-        <div id="funnel-consolidado"></div>
-      </div>
-    </div>
-
-    <div class="chart-row" style="grid-template-columns: 1fr 1fr;">
-      <div class="card">
-        <h3>Investimento por Canal</h3>
-        <p class="card-sub">Distribuição do real investido no período</p>
-        <div class="chart-box" style="height:220px;"><canvas id="chart-canal-pizza"></canvas></div>
-      </div>
-      <div class="card">
-        <h3>Matrículas por Cluster</h3>
-        <p class="card-sub">Real vs. mesmo período do ano anterior</p>
-        <div class="chart-box" style="height:220px;"><canvas id="chart-cluster-matr"></canvas></div>
-      </div>
-    </div>
-
-    <div class="chart-row" style="grid-template-columns: 1fr;">
-      <div class="card">
-        <h3>Impressões &amp; Clicks por Canal</h3>
-        <p class="card-sub">Volume de topo de funil, por canal de mídia</p>
-        <div class="chart-box" style="height:240px;"><canvas id="chart-impr-clicks-canal"></canvas></div>
-      </div>
-    </div>
-
-    <div class="analysis-slot">
-      <div class="analysis-slot-head">
-        <h3>Análise &amp; Recomendação</h3>
-        <p>Cole aqui o texto analítico (variação YoY com hipótese de causa, aderência ao planejado, leitura de funil e recomendação)</p>
-      </div>
-      <div class="analysis-body" contenteditable="true" data-slot="consolidado">
-<h4>Leitura do período</h4>
-<p>Este recorte cobre os primeiros 15 dias de julho de 2026, nas 39 unidades acompanhadas neste relatório. O investimento real soma R$ 155.290, as impressões chegam a 15.994.797, os clicks a 477.786, as sessões a 158.627, os leads a 132 e não há nenhuma matrícula registrada, contra 49 no mesmo recorte de 2025.</p>
-
-<h4>Investimento e volume de mídia</h4>
-<p>O investimento ficou 60,1% acima do mesmo período de 2025 e rodou a 87,4% do plano rateado, próximo do previsto. Impressões e clicks cresceram ainda mais que o investimento, 559,3% e 865,8% frente ao ano anterior, o que indica queda no custo de entrega. O CPM ficou em R$ 9,71, o CPC em R$ 0,33 e o CTR consolidado em 2,99%.</p>
-
-<h4>Alcance e frequência (Meta)</h4>
-<p>Somando o alcance reportado pelo Meta em cada uma das 39 unidades, o total chega a 3.360.623, 269,1% acima do mesmo período de 2025. Dividindo as impressões totais (todos os canais) por essa soma, a frequência estimada é de 4,76 impressões por pessoa alcançada, contra 2,66 no ano anterior. Como o card explica, essa soma de alcances não é o alcance único real, já que a mesma pessoa pode ter sido contada em mais de uma unidade, e a frequência mistura impressões de todos os canais com um alcance que só existe no Meta. É uma leitura aproximada, útil para acompanhar a tendência, não um número de audiência único e exato.</p>
-
-<h4>Sessões e conversão</h4>
-<p>As sessões acompanharam o crescimento de mídia, 374,3% acima de 2025 e 339,2% do plano. Os leads foram na direção oposta, 75,6% abaixo do ano anterior e cobrindo só 19,9% da meta rateada. O CPL médio subiu para R$ 1.176,44 e nenhuma matrícula foi registrada nos 15 dias, contra 49 no mesmo período do ano passado. O funil está recebendo muito mais tráfego do que antes e convertendo proporcionalmente menos em cada etapa.</p>
-
-<h4>Canais</h4>
-<p>O Google concentra R$ 133.656 do investimento e a maior parte de impressões e clicks, com CTR de 3,77%. O Meta investiu R$ 20.838, rodando a 84,1% do plano, com CTR bem mais baixo, 0,94%, e não gerou leads no período (zero, contra 55 no ano anterior). O TikTok aparece agora com R$ 796 investidos nesta base, bem abaixo do plano de R$ 9.015, concentrado em poucas unidades (Criciúma, Londrina, Pio XII (PR), São Francisco (SC), Asa Sul, Rosário, São Luís (SC)), sinal de ativação ainda parcial do canal.</p>
-
-<h4>Recomendação</h4>
-<p>O crescimento forte de impressão e clique sem crescimento equivalente de lead aponta para um problema entre o clique e a captação, não na entrada de tráfego, quadro que se repete nas 39 unidades deste recorte. Vale revisar páginas de destino e formulários das campanhas que mais cresceram em volume, e usar unidades com CTR alto e CPL baixo, como São José - Tijuca, como referência de funil eficiente para o restante da base.</p>
-      
-      </div>
-      <div class="slot-footer">
-        <button class="slot-btn" data-clear>Limpar</button>
-        <button class="slot-btn primary" data-copy>Copiar texto</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== POR CLUSTER ===================== -->
-  <section class="tab-panel" id="panel-cluster">
-    <p class="section-label">Recorte por Cluster de Prioridade</p>
-    <div class="cluster-grid" id="cluster-grid"></div>
-
-    <div class="card" style="margin-bottom: 28px;">
-      <h3>Aderência ao Planejado por Cluster</h3>
-      <p class="card-sub">Investimento, Sessões e Leads — Real ÷ Planejado rateado</p>
-      <div class="chart-box" style="height:280px;"><canvas id="chart-cluster-aderencia"></canvas></div>
-    </div>
-
-    <div class="analysis-slot">
-      <div class="analysis-slot-head">
-        <h3>Análise por Cluster</h3>
-        <p>Destaques e divergências entre clusters de prioridade</p>
-      </div>
-      <div class="analysis-body" contenteditable="true" data-slot="cluster">
-<h4>Panorama dos clusters</h4>
-<p>Nas 39 unidades deste recorte, o Azul concentra o maior investimento, R$ 64.775 em 16 unidades, seguido de Esmeralda com R$ 60.558 em 9 unidades, Laranja com R$ 27.171 em 11 unidades e Amarelo com R$ 2.786 em apenas 3 unidades.</p>
-
-<h4>Investimento</h4>
-<p>Laranja e Amarelo passaram do plano rateado, 104,9% e 101,7% de aderência. Azul e Esmeralda ficaram abaixo, 84,3% e 83,9%.</p>
-
-<h4>Impressões e clicks</h4>
-<p>Todos os clusters tiveram crescimento forte de impressão e clique frente a 2025. Esmeralda teve o maior salto em impressões, 837,3%, e Laranja o maior em clicks, 1249,6%. O CTR mais alto ficou com Laranja, 4,33%, e o mais baixo com Esmeralda, 2,30%.</p>
-
-<h4>Sessões e leads</h4>
-<p>Azul e Esmeralda lideram em sessões, 66.384 e 62.219, ambos acima de 350% do plano rateado. Azul cobre só 13,8% da meta de leads, a pior proporção entre os quatro clusters mesmo sendo o maior investimento. Esmeralda converte um pouco melhor, 27,8% da meta de leads, próximo de Laranja, com 27,0%. Amarelo, o menor cluster em volume e com apenas 3 unidades, não gerou nenhum lead no período.</p>
-
-<h4>Recomendação</h4>
-<p>Azul merece atenção prioritária: é o maior investimento do recorte e tem a pior aderência de leads em relação ao volume de tráfego recebido. Esmeralda, com o segundo maior volume de sessões, também converte pouco e pede revisão pontual das campanhas que mais cresceram, a exemplo de Asa Sul e Asa Norte. Laranja pode servir de referência de CTR para os demais clusters.</p>
-      
-      </div>
-      <div class="slot-footer">
-        <button class="slot-btn" data-clear>Limpar</button>
-        <button class="slot-btn primary" data-copy>Copiar texto</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== POR UNIDADE ===================== -->
-  <section class="tab-panel" id="panel-unidade">
-    <p class="section-label">Detalhe por Unidade &amp; Canal</p>
-    <div class="pill-row" id="pill-row"></div>
-    <div class="scroll-hint">
-      <span>A tabela tem mais colunas do que cabem na tela. Arraste para o lado ou use as setas para ver Sessões, Leads, Tx. Conv., Matrículas e CPL.</span>
-      <div class="scroll-hint-btns">
-        <button type="button" class="scroll-btn" id="scroll-left" aria-label="Rolar para a esquerda">‹</button>
-        <button type="button" class="scroll-btn" id="scroll-right" aria-label="Rolar para a direita">›</button>
-      </div>
-    </div>
-    <div class="table-scroll-wrap">
-      <div class="table-scroll" id="unidades-scroll">
-        <table id="tabela-unidades">
-          <thead>
-            <tr>
-              <th class="sticky-col">Unidade</th><th>Cluster</th><th>Canal</th>
-              <th>Invest. Real</th><th>Aderência</th>
-              <th>Impressões</th><th>Clicks</th><th>CTR</th>
-              <th>Alcance</th><th>Frequência</th>
-              <th>Sessões</th><th>Leads</th><th>Tx. Conv.</th><th>Matrículas</th><th>CPL</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <div class="scroll-fade" id="scroll-fade-right"></div>
-    </div>
-
-    <div class="analysis-slot" style="margin-top: 24px;">
-      <div class="analysis-slot-head">
-        <h3>Observações por Unidade</h3>
-        <p>Casos individuais que merecem atenção da equipe</p>
-      </div>
-      <div class="analysis-body" contenteditable="true" data-slot="unidade">
-<h4>Onde está o volume de mídia</h4>
-<p>Nas 39 unidades deste recorte, Asa Sul lidera em investimento, R$ 13.592, e em impressões, 1.885.646, mas converteu só 4 leads no período, o que deixa o CPL em R$ 3.398. Natal e Rosário também aparecem entre as maiores em investimento e sessões, com 10 leads cada.</p>
-
-<h4>Onde a conversão funciona</h4>
-<p>São José - Tijuca tem o CTR mais alto do grupo, 6,26%, e converteu 15 leads com R$ 5.231 investidos, o menor CPL entre as unidades analisadas, R$ 349. São Francisco (SC) e São José - Barra também converteram acima da média, com CPL de R$ 519 e R$ 667 respectivamente, mesmo com volume relevante de tráfego.</p>
-
-<h4>Tráfego alto sem conversão proporcional</h4>
-<p>Londrina, Alexander Fleming, Ribeirão Preto, Asa Norte e Maringá tiveram volume alto de impressões e clicks, mas fecharam com 1 ou 2 leads cada, o que deixou o CPL acima de R$ 3.400 em todos os casos, chegando a R$ 6.729 em Londrina. Esse padrão se repete nas unidades com maior tráfego pago, o que indica que o gargalo está entre o clique e o lead, não na entrega de mídia.</p>
-
-<h4>Alcance e frequência por unidade (Meta)</h4>
-<p>Nas unidades com campanha ativa no Meta, o alcance e a frequência agora aparecem lado a lado com sua variação YoY na tabela, mas valem só para esse canal. Google e TikTok mostram "n/a" nessas duas colunas por não reportarem alcance nesta base.</p>
-
-<h4>Recomendação</h4>
-<p>Revisar páginas de destino e formulários de Asa Sul, Londrina, Alexander Fleming e Asa Norte, que reúnem o maior volume de tráfego pago sem conversão proporcional neste recorte. São José - Tijuca pode servir de referência de funil eficiente, com CTR alto e CPL baixo mesmo em escala menor de investimento, para orientar ajustes nas demais unidades.</p>
-      
-      </div>
-      <div class="slot-footer">
-        <button class="slot-btn" data-clear>Limpar</button>
-        <button class="slot-btn primary" data-copy>Copiar texto</button>
-      </div>
-    </div>
-  </section>
-
-  <footer>Relatório gerado a partir da base Resumo_Calculado2, nas 39 unidades acompanhadas neste relatório. Uso interno da equipe de mídia.</footer>
+  <footer>Gerado automaticamente a partir da lista de reports abaixo no código-fonte desta página.</footer>
 </div>
 
-<script id="report-data" type="application/json">{"periodo": "01/07 a 15/07/2026", "periodoYoY": "01/07 a 15/07/2025", "geradoEm": "23/07/2026", "consolidado": {"investReal": 155290.06793099997, "investYoY": 97016.28611100001, "varInvestYoY": 0.600659787711588, "investPlan": 177651.08116258064, "aderInvest": 0.8741295967058226, "imprReal": 15994797, "imprYoY": 2426065, "varImprYoY": 5.59289714001892, "clicksReal": 477786, "clicksYoY": 49469, "varClicksYoY": 8.658291050961209, "ctr": 0.029871338785981465, "cpc": 0.3250201302068289, "cpm": 9.708786421671995, "sessReal": 158627, "sessYoY": 33447, "varSessYoY": 3.742637605764344, "sessPlan": 46759.35483870967, "aderSess": 3.3924120755550042, "leadsReal": 132, "leadsYoY": 541, "varLeadsYoY": -0.756007393715342, "leadsPlan": 662.9032258064516, "aderLeads": 0.1991240875912409, "matrReal": 0, "matrYoY": 49, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0008321408083113215, "txLeadMatr": 0.0, "txSessMatr": 0.0, "cpl": 1176.4399085681816, "cpa": null, "unidades": 39, "reachReal": 3360623, "reachYoY": 910459, "varReachYoY": 2.6911305176839373, "freqReal": 4.759473764239547, "freqYoY": 2.6646614509824165, "varFreqYoY": 0.7861457644027567}, "porCanal": {"GOOGLE": {"investReal": 133656.39793099998, "investYoY": 82384.406111, "varInvestYoY": 0.622350687955668, "investPlan": 143864.18603177418, "aderInvest": 0.9290456618680644, "imprReal": 11585339, "imprYoY": 499813, "varImprYoY": 22.17934707580635, "clicksReal": 436840, "clicksYoY": 26421, "varClicksYoY": 15.533817796449792, "ctr": 0.03770627687286492, "cpc": 0.3059619035138723, "cpm": 11.536684246442853, "sessReal": 153209, "sessYoY": 20598, "varSessYoY": 6.438052238081367, "sessPlan": 30300.000000000004, "aderSess": 5.056402640264026, "leadsReal": 132, "leadsYoY": 486, "varLeadsYoY": -0.7283950617283951, "leadsPlan": 644.516129032258, "aderLeads": 0.2048048048048048, "matrReal": 0, "matrYoY": 43, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0008615681846366728, "txLeadMatr": 0.0, "txSessMatr": 0.0, "cpl": 1012.5484691742423, "cpa": null, "unidades": 39}, "META": {"investReal": 20838.13, "investYoY": 14631.88, "varInvestYoY": 0.4241594381583229, "investPlan": 24772.27202467742, "aderInvest": 0.841187678677259, "imprReal": 4257325, "imprYoY": 1926252, "varImprYoY": 1.2101599375367296, "clicksReal": 40228, "clicksYoY": 23048, "varClicksYoY": 0.7454009024644221, "ctr": 0.009449125918270275, "cpc": 0.5180006463159988, "cpm": 4.894653332785258, "sessReal": 5029, "sessYoY": 12849, "varSessYoY": -0.6086076737489299, "sessPlan": 10132.741935483871, "aderSess": 0.4963118603059389, "leadsReal": 0, "leadsYoY": 55, "varLeadsYoY": -1.0, "leadsPlan": 18.387096774193548, "aderLeads": 0.0, "matrReal": 0, "matrYoY": 6, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "cpl": null, "cpa": null, "unidades": 29}, "TIKTOK": {"investReal": 795.54, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 9014.623106129031, "aderInvest": 0.08824994574194825, "imprReal": 152133, "imprYoY": 0, "varImprYoY": null, "clicksReal": 718, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.004719554600251096, "cpc": 1.1079944289693593, "cpm": 5.229240204294926, "sessReal": 389, "sessYoY": 0, "varSessYoY": null, "sessPlan": 6326.612903225807, "aderSess": 0.06148629700446144, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "cpl": null, "cpa": null, "unidades": 9}}, "porCluster": {"Amarelo": {"investReal": 2786.3078550000005, "investYoY": 1164.6993850000001, "varInvestYoY": 1.392297867487927, "investPlan": 2739.5370967741937, "aderInvest": 1.0170725040667927, "imprReal": 104191, "imprYoY": 24614, "varImprYoY": 3.2329974811083124, "clicksReal": 3566, "clicksYoY": 495, "varClicksYoY": 6.204040404040404, "ctr": 0.034225604898695666, "cpc": 0.78135385726304, "cpm": 26.742308404756656, "sessReal": 1521, "sessYoY": 321, "varSessYoY": 3.738317757009346, "sessPlan": 716.1290322580645, "aderSess": 2.123918918918919, "leadsReal": 0, "leadsYoY": 7, "varLeadsYoY": -1.0, "leadsPlan": 20.322580645161292, "aderLeads": 0.0, "matrReal": 0, "matrYoY": 2, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "cpl": null, "cpa": null, "unidades": 3, "canais": {"GOOGLE": {"investReal": 2786.3078550000005, "investYoY": 1002.2293850000001, "varInvestYoY": 1.7801099196467884, "investPlan": 2739.5370967741937, "aderInvest": 1.0170725040667927, "imprReal": 104191, "imprYoY": 5126, "varImprYoY": 19.32598517362466, "clicksReal": 3566, "clicksYoY": 332, "varClicksYoY": 9.740963855421686, "ctr": 0.034225604898695666, "cpc": 0.78135385726304, "cpm": 26.742308404756656, "sessReal": 1521, "sessYoY": 239, "varSessYoY": 5.364016736401673, "sessPlan": 716.1290322580645, "aderSess": 2.123918918918919, "leadsReal": 0, "leadsYoY": 6, "varLeadsYoY": -1.0, "leadsPlan": 20.322580645161292, "aderLeads": 0.0, "matrReal": 0, "matrYoY": 2, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "cpl": null, "cpa": null, "unidades": 3}, "META": {"investReal": 0.0, "investYoY": 162.47, "varInvestYoY": -1.0, "investPlan": 0.0, "aderInvest": null, "imprReal": 0, "imprYoY": 19488, "varImprYoY": -1.0, "clicksReal": 0, "clicksYoY": 163, "varClicksYoY": -1.0, "ctr": null, "cpc": null, "cpm": null, "sessReal": 0, "sessYoY": 82, "varSessYoY": -1.0, "sessPlan": 0.0, "aderSess": null, "leadsReal": 0, "leadsYoY": 1, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "matrPlan": 0, "aderMatr": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "cpl": null, "cpa": null, "unidades": 1}}}, "Azul": {"investReal": 64775.18507200001, "investYoY": 45387.900549, "varInvestYoY": 0.4271465365988856, "investPlan": 76846.5435483871, "aderInvest": 0.8429160516661852, "imprReal": 5865697, "imprYoY": 1271083, "varImprYoY": 3.6147238221264857, "clicksReal": 205704, "clicksYoY": 22352, "varClicksYoY": 8.202934860415175, "ctr": 0.0350689781623565, "cpc": 0.3148951166336095, "cpm": 11.043049968656753, "sessReal": 66384, "sessYoY": 16573, "varSessYoY": 3.0055511977312497, "sessPlan": 18825.483870967746, "aderSess": 3.5262838636714124, "leadsReal": 45, "leadsYoY": 311, "varLeadsYoY": -0.8553054662379421, "leadsPlan": 326.61290322580646, "aderLeads": 0.13777777777777778, "matrReal": 0, "matrYoY": 32, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0006778741865509761, "txLeadMatr": 0.0, "txSessMatr": 0.0, "cpl": 1439.4485571555558, "cpa": null, "unidades": 16, "canais": {"GOOGLE": {"investReal": 54984.675072, "investYoY": 37820.950549, "varInvestYoY": 0.4538152604272345, "investPlan": 63274.10322580645, "aderInvest": 0.8689917718118588, "imprReal": 4684252, "imprYoY": 219895, "varImprYoY": 20.302221514813887, "clicksReal": 183708, "clicksYoY": 12655, "varClicksYoY": 13.516633741604108, "ctr": 0.039218214562325, "cpc": 0.2993047394343197, "cpm": 11.738197490655924, "sessReal": 64635, "sessYoY": 11273, "varSessYoY": 4.733611283597978, "sessPlan": 13919.032258064515, "aderSess": 4.643641799346451, "leadsReal": 45, "leadsYoY": 264, "varLeadsYoY": -0.8295454545454546, "leadsPlan": 308.2258064516129, "aderLeads": 0.14599686028257455, "matrReal": 0, "matrYoY": 28, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.000696217219772569, "txLeadMatr": 0.0, "txSessMatr": 0.0, "cpl": 1221.8816682666666, "cpa": null, "unidades": 16}, "META": {"investReal": 9395.11, "investYoY": 7566.95, "varInvestYoY": 0.2415980018369357, "investPlan": 11354.143548387094, "aderInvest": 0.8274609141553981, "imprReal": 1137601, "imprYoY": 1051188, "varImprYoY": 0.08220508605501586, "clicksReal": 21706, "clicksYoY": 9697, "varClicksYoY": 1.2384242549242033, "ctr": 0.01908050362121693, "cpc": 0.4328347000829264, "cpm": 8.258704062320621, "sessReal": 1576, "sessYoY": 5300, "varSessYoY": -0.7026415094339622, "sessPlan": 3595.645161290323, "aderSess": 0.43830798905486024, "leadsReal": 0, "leadsYoY": 47, "varLeadsYoY": -1.0, "leadsPlan": 18.387096774193548, "aderLeads": 0.0, "matrReal": 0, "matrYoY": 4, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "cpl": null, "cpa": null, "unidades": 14}, "TIKTOK": {"investReal": 395.4, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 2218.296774193548, "aderInvest": 0.1782448609220675, "imprReal": 43844, "imprYoY": 0, "varImprYoY": null, "clicksReal": 290, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.006614360003649302, "cpc": 1.363448275862069, "cpm": 9.018337742906668, "sessReal": 173, "sessYoY": 0, "varSessYoY": null, "sessPlan": 1310.8064516129032, "aderSess": 0.13197982035191339, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "cpl": null, "cpa": null, "unidades": 4}}}, "Esmeralda": {"investReal": 60557.84341799999, "investYoY": 32519.965621000003, "varInvestYoY": 0.8621742754517037, "investPlan": 72159.03761419356, "aderInvest": 0.839227426255036, "imprReal": 8139006, "imprYoY": 868373, "varImprYoY": 8.372707350412783, "clicksReal": 186849, "clicksYoY": 20571, "varClicksYoY": 8.083126731806912, "ctr": 0.022957225980666435, "cpc": 0.324100441629337, "cpm": 7.4404470789184805, "sessReal": 62219, "sessYoY": 12268, "varSessYoY": 4.0716498206716665, "sessPlan": 17441.612903225807, "aderSess": 3.567273298932845, "leadsReal": 60, "leadsYoY": 151, "varLeadsYoY": -0.6026490066225165, "leadsPlan": 215.80645161290326, "aderLeads": 0.2780269058295964, "matrReal": 0, "matrYoY": 10, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.000964335653096321, "txLeadMatr": 0.0, "txSessMatr": 0.0, "cpl": 1009.2973902999998, "cpa": null, "unidades": 9, "canais": {"GOOGLE": {"investReal": 51171.093418, "investYoY": 27670.115621, "varInvestYoY": 0.8493270544617504, "investPlan": 54557.534418870964, "aderInvest": 0.9379289948319287, "imprReal": 5049375, "imprYoY": 192551, "varImprYoY": 25.22357193678558, "clicksReal": 172566, "clicksYoY": 8998, "varClicksYoY": 18.178261835963546, "ctr": 0.034175714816190125, "cpc": 0.29653056464193406, "cpm": 10.134144011486569, "sessReal": 60054, "sessYoY": 5646, "varSessYoY": 9.636556854410202, "sessPlan": 8040.4838709677415, "aderSess": 7.468953481374497, "leadsReal": 60, "leadsYoY": 148, "varLeadsYoY": -0.5945945945945945, "leadsPlan": 215.80645161290326, "aderLeads": 0.2780269058295964, "matrReal": 0, "matrYoY": 10, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0009991008092716555, "txLeadMatr": 0.0, "txSessMatr": 0.0, "cpl": 852.8515569666666, "cpa": null, "unidades": 9}, "META": {"investReal": 9028.58, "investYoY": 4849.85, "varInvestYoY": 0.8616204624885304, "investPlan": 11066.118798870968, "aderInvest": 0.8158759330255112, "imprReal": 2984990, "imprYoY": 675822, "varImprYoY": 3.4168286915785515, "clicksReal": 13883, "clicksYoY": 11573, "varClicksYoY": 0.19960252311414495, "ctr": 0.004650936854059813, "cpc": 0.6503335014045956, "cpm": 3.0246600491123923, "sessReal": 1963, "sessYoY": 6622, "varSessYoY": -0.7035638779824827, "sessPlan": 4547.41935483871, "aderSess": 0.4316734056891537, "leadsReal": 0, "leadsYoY": 3, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "cpl": null, "cpa": null, "unidades": 7}, "TIKTOK": {"investReal": 358.17, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 6535.384396451613, "aderInvest": 0.05480473347435668, "imprReal": 104641, "imprYoY": 0, "varImprYoY": null, "clicksReal": 400, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.0038225934385183627, "cpc": 0.895425, "cpm": 3.422845729685305, "sessReal": 202, "sessYoY": 0, "varSessYoY": null, "sessPlan": 4853.709677419355, "aderSess": 0.041617651945635194, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "cpl": null, "cpa": null, "unidades": 4}}}, "Laranja": {"investReal": 27170.731586, "investYoY": 17943.720556, "varInvestYoY": 0.5142195009782786, "investPlan": 25905.962903225805, "aderInvest": 1.0488215275957455, "imprReal": 1885903, "imprYoY": 261995, "varImprYoY": 6.198240424435581, "clicksReal": 81667, "clicksYoY": 6051, "varClicksYoY": 12.496446868286233, "ctr": 0.043303923902767, "cpc": 0.3327014777817234, "cpm": 14.407279476197875, "sessReal": 28503, "sessYoY": 4285, "varSessYoY": 5.651808634772462, "sessPlan": 9776.129032258064, "aderSess": 2.9155711740249455, "leadsReal": 27, "leadsYoY": 72, "varLeadsYoY": -0.625, "leadsPlan": 100.16129032258065, "aderLeads": 0.26956521739130435, "matrReal": 0, "matrYoY": 5, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.000947268708556994, "txLeadMatr": 0.0, "txSessMatr": 0.0, "cpl": 1006.3233920740741, "cpa": null, "unidades": 11, "canais": {"GOOGLE": {"investReal": 24714.321586, "investYoY": 15891.110556, "varInvestYoY": 0.5552293528452372, "investPlan": 23293.01129032258, "aderInvest": 1.0610187441186671, "imprReal": 1747521, "imprYoY": 82241, "varImprYoY": 20.248781021631547, "clicksReal": 77000, "clicksYoY": 4436, "varClicksYoY": 16.357980162308387, "ctr": 0.04406241756179182, "cpc": 0.32096521540259737, "cpm": 14.1425033438797, "sessReal": 26999, "sessYoY": 3440, "varSessYoY": 6.848546511627907, "sessPlan": 7624.354838709678, "aderSess": 3.541152080556789, "leadsReal": 27, "leadsYoY": 68, "varLeadsYoY": -0.6029411764705883, "leadsPlan": 100.16129032258064, "aderLeads": 0.26956521739130435, "matrReal": 0, "matrYoY": 3, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.00100003703840883, "txLeadMatr": 0.0, "txSessMatr": 0.0, "cpl": 915.3452439259258, "cpa": null, "unidades": 11}, "META": {"investReal": 2414.4399999999996, "investYoY": 2052.61, "varInvestYoY": 0.1762780070252017, "investPlan": 2352.009677419355, "aderInvest": 1.0265433952844718, "imprReal": 134734, "imprYoY": 179754, "varImprYoY": -0.25045339742091965, "clicksReal": 4639, "clicksYoY": 1615, "varClicksYoY": 1.8724458204334367, "ctr": 0.03443080439978031, "cpc": 0.5204656175899978, "cpm": 17.920049876052072, "sessReal": 1490, "sessYoY": 845, "varSessYoY": 0.7633136094674555, "sessPlan": 1989.677419354839, "aderSess": 0.7488651102464331, "leadsReal": 0, "leadsYoY": 4, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 2, "varMatrYoY": -1.0, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "cpl": null, "cpa": null, "unidades": 7}, "TIKTOK": {"investReal": 41.97, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 260.94193548387096, "aderInvest": 0.1608403797656134, "imprReal": 3648, "imprYoY": 0, "varImprYoY": null, "clicksReal": 28, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.007675438596491228, "cpc": 1.4989285714285714, "cpm": 11.504934210526315, "sessReal": 14, "sessYoY": 0, "varSessYoY": null, "sessPlan": 162.09677419354838, "aderSess": 0.0863681592039801, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "matrPlan": 0, "aderMatr": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "cpl": null, "cpa": null, "unidades": 1}}}}, "unidades": [{"unidade": "Assunção", "sigla": "ASS", "cluster": "Amarelo", "regional": "Porto Alegre", "canal": "GOOGLE", "investReal": 616.9247140000001, "investYoY": 311.441688, "varInvestYoY": 0.9808674874636567, "investPlan": 641.917741935484, "aderInvest": 0.961065061295664, "aderInvestYoY": 0.4851738278193618, "varAderInvestYoY": 0.9808674874636567, "sessReal": 31, "sessYoY": 94, "varSessYoY": -0.6702127659574468, "sessPlan": 152.90322580645162, "aderSess": 0.20274261603375526, "leadsReal": 0, "leadsYoY": 4, "varLeadsYoY": -1.0, "leadsPlan": 4.838709677419355, "aderLeads": 0.0, "matrReal": 0, "matrYoY": 2, "varMatrYoY": -1.0, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.02127659574468085, "varTxSessMatrYoY": -1.0, "cpl": null, "cpa": null, "imprReal": 1573, "imprYoY": 2890, "varImprYoY": -0.4557093425605536, "clicksReal": 67, "clicksYoY": 192, "varClicksYoY": -0.6510416666666667, "ctr": 0.04259376986649714, "ctrYoY": 0.06643598615916955, "varCtrYoY": -0.3588750264886629, "cpc": 9.207831552238808, "cpm": 392.1962581055309, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Presidente Prudente", "sigla": "PRP", "cluster": "Amarelo", "regional": "São Paulo", "canal": "GOOGLE", "investReal": 939.6936989999999, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 928.1612903225807, "aderInvest": 1.0124250050046917, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 3, "sessYoY": 0, "varSessYoY": null, "sessPlan": 270.48387096774195, "aderSess": 0.0110912343470483, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 7.258064516129032, "aderLeads": 0.0, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 2537, "imprYoY": 0, "varImprYoY": null, "clicksReal": 199, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.07843910130074892, "ctrYoY": null, "varCtrYoY": null, "cpc": 4.722078889447236, "cpm": 370.39562435947965, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Sagrado Coração de Jesus", "sigla": "SCJ", "cluster": "Amarelo", "regional": "Curitiba", "canal": "GOOGLE", "investReal": 1229.6894420000003, "investYoY": 690.7876970000001, "varInvestYoY": 0.7801264373126207, "investPlan": 1169.458064516129, "aderInvest": 1.0515036659384553, "aderInvestYoY": 0.5906904385543897, "varAderInvestYoY": 0.7801264373126209, "sessReal": 1487, "sessYoY": 145, "varSessYoY": 9.255172413793103, "sessPlan": 292.741935483871, "aderSess": 5.079559228650138, "leadsReal": 0, "leadsYoY": 2, "varLeadsYoY": -1.0, "leadsPlan": 8.225806451612904, "aderLeads": 0.0, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 100081, "imprYoY": 2236, "varImprYoY": 43.758944543828264, "clicksReal": 3300, "clicksYoY": 140, "varClicksYoY": 22.571428571428573, "ctr": 0.032973291633776644, "ctrYoY": 0.0626118067978533, "varCtrYoY": -0.473369427906253, "cpc": 0.3726331642424243, "cpm": 12.286941996982447, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Sagrado Coração de Jesus", "sigla": "SCJ", "cluster": "Amarelo", "regional": "Curitiba", "canal": "META", "investReal": 0.0, "investYoY": 162.47, "varInvestYoY": -1.0, "investPlan": 0.0, "aderInvest": null, "aderInvestYoY": null, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 82, "varSessYoY": -1.0, "sessPlan": 0.0, "aderSess": null, "leadsReal": 0, "leadsYoY": 1, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 0, "imprYoY": 19488, "varImprYoY": -1.0, "clicksReal": 0, "clicksYoY": 163, "varClicksYoY": -1.0, "ctr": null, "ctrYoY": 0.008364121510673235, "varCtrYoY": null, "cpc": null, "cpm": null, "reachReal": 0, "reachYoY": 14307, "varReachYoY": -1.0, "freqReal": null, "freqYoY": 1.362130425665758, "varFreqYoY": null}, {"unidade": "Águas Claras", "sigla": "AGC", "cluster": "Azul", "regional": "Brasília", "canal": "GOOGLE", "investReal": 1681.1347700000001, "investYoY": 2017.3780949999998, "varInvestYoY": -0.16667342915706618, "investPlan": 2017.925806451613, "aderInvest": 0.8331003868552347, "aderInvestYoY": 0.9997285770121667, "varAderInvestYoY": -0.16667342915706618, "sessReal": 2398, "sessYoY": 341, "varSessYoY": 6.032258064516129, "sessPlan": 430.1612903225806, "aderSess": 5.574653168353956, "leadsReal": 1, "leadsYoY": 11, "varLeadsYoY": -0.9090909090909091, "leadsPlan": 11.129032258064518, "aderLeads": 0.0898550724637681, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0004170141784820684, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 1681.1347700000001, "cpa": null, "imprReal": 381025, "imprYoY": 20771, "varImprYoY": 17.34408550382745, "clicksReal": 10946, "clicksYoY": 757, "varClicksYoY": 13.459709379128137, "ctr": 0.02872777376812545, "ctrYoY": 0.036445043570362524, "varCtrYoY": -0.2117508732658735, "cpc": 0.1535843933857117, "cpm": 4.412137707499508, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Águas Claras", "sigla": "AGC", "cluster": "Azul", "regional": "Brasília", "canal": "META", "investReal": 303.40999999999997, "investYoY": 680.73, "varInvestYoY": -0.5542873092121694, "investPlan": 699.1258064516129, "aderInvest": 0.4339848382080847, "aderInvestYoY": 0.973687416081835, "varAderInvestYoY": -0.5542873092121694, "sessReal": 268, "sessYoY": 968, "varSessYoY": -0.7231404958677685, "sessPlan": 207.09677419354838, "aderSess": 1.2940809968847353, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 60642, "imprYoY": 265215, "varImprYoY": -0.7713477744471466, "clicksReal": 1406, "clicksYoY": 2370, "varClicksYoY": -0.40675105485232066, "ctr": 0.023185251146070382, "ctrYoY": 0.008936146145580002, "varCtrYoY": 1.5945469969219643, "cpc": 0.21579658605974394, "cpm": 5.003298044259753, "reachReal": 51937, "reachYoY": 75074, "varReachYoY": -0.3081892532701068, "freqReal": 1.1676069083697556, "freqYoY": 3.5327143884700427, "varFreqYoY": -0.6694873176896063}, {"unidade": "Alexander Fleming", "sigla": "AFM", "cluster": "Azul", "regional": "São Paulo", "canal": "GOOGLE", "investReal": 5361.6595320000015, "investYoY": 3133.5443029999997, "varInvestYoY": 0.7110527292902302, "investPlan": 5249.8645161290315, "aderInvest": 1.0212948382815414, "aderInvestYoY": 0.5968809849040652, "varAderInvestYoY": 0.7110527292902302, "sessReal": 8902, "sessYoY": 1131, "varSessYoY": 6.870910698496905, "sessPlan": 824.516129032258, "aderSess": 10.796635367762129, "leadsReal": 2, "leadsYoY": 33, "varLeadsYoY": -0.9393939393939394, "leadsPlan": 43.54838709677419, "aderLeads": 0.045925925925925926, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.00022466861379465288, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 2680.8297660000007, "cpa": null, "imprReal": 595253, "imprYoY": 17202, "varImprYoY": 33.60370887106151, "clicksReal": 25842, "clicksYoY": 1255, "varClicksYoY": 19.591235059760955, "ctr": 0.043413472926637914, "ctrYoY": 0.07295663294965701, "varCtrYoY": -0.4049413854310554, "cpc": 0.20747850522405392, "cpm": 9.00736246940377, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Alexander Fleming", "sigla": "AFM", "cluster": "Azul", "regional": "São Paulo", "canal": "META", "investReal": 1996.07, "investYoY": 750.88, "varInvestYoY": 1.6583075857660345, "investPlan": 3128.5209677419352, "aderInvest": 0.638023532711273, "aderInvestYoY": 0.24001117708409056, "varAderInvestYoY": 1.6583075857660345, "sessReal": 13, "sessYoY": 328, "varSessYoY": -0.9603658536585366, "sessPlan": 536.1290322580645, "aderSess": 0.02424789410348977, "leadsReal": 0, "leadsYoY": 26, "varLeadsYoY": -1.0, "leadsPlan": 15.0, "aderLeads": 0.0, "matrReal": 0, "matrYoY": 2, "varMatrYoY": -1.0, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.006097560975609756, "varTxSessMatrYoY": -1.0, "cpl": null, "cpa": null, "imprReal": 209820, "imprYoY": 65108, "varImprYoY": 2.2226454506358664, "clicksReal": 3448, "clicksYoY": 816, "varClicksYoY": 3.2254901960784315, "ctr": 0.016433133161757697, "ctrYoY": 0.012533022055661362, "varCtrYoY": 0.31118680624475514, "cpc": 0.5789066125290023, "cpm": 9.513249451911161, "reachReal": 125337, "reachYoY": 47704, "varReachYoY": 1.6273897367097097, "freqReal": 1.6740467699083272, "freqYoY": 1.3648331376823746, "varFreqYoY": 0.22655782871086272}, {"unidade": "Champagnat (RS)", "sigla": "CHA_RS", "cluster": "Azul", "regional": "Porto Alegre", "canal": "GOOGLE", "investReal": 1887.2720470000006, "investYoY": 1919.5828310000004, "varInvestYoY": -0.01683219055630314, "investPlan": 2193.261290322581, "aderInvest": 0.8604866439431045, "aderInvestYoY": 0.8752184883168533, "varAderInvestYoY": -0.01683219055630314, "sessReal": 2409, "sessYoY": 320, "varSessYoY": 6.528125, "sessPlan": 423.38709677419354, "aderSess": 5.6898285714285715, "leadsReal": 0, "leadsYoY": 14, "varLeadsYoY": -1.0, "leadsPlan": 13.548387096774196, "aderLeads": 0.0, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 261228, "imprYoY": 8393, "varImprYoY": 30.124508519003932, "clicksReal": 9758, "clicksYoY": 558, "varClicksYoY": 16.487455197132615, "ctr": 0.037354341801032045, "ctrYoY": 0.06648397474085548, "varCtrYoY": -0.43814517789236207, "cpc": 0.19340767032178732, "cpm": 7.224616224141366, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Conceição", "sigla": "CON", "cluster": "Azul", "regional": "Porto Alegre", "canal": "GOOGLE", "investReal": 1945.0794600000002, "investYoY": 707.59174, "varInvestYoY": 1.7488724783587783, "investPlan": 2208.164516129032, "aderInvest": 0.8808580365242773, "aderInvestYoY": 0.32044339759631046, "varAderInvestYoY": 1.7488724783587783, "sessReal": 3599, "sessYoY": 122, "varSessYoY": 28.5, "sessPlan": 474.19354838709677, "aderSess": 7.589727891156462, "leadsReal": 2, "leadsYoY": 1, "varLeadsYoY": 1.0, "leadsPlan": 3.870967741935484, "aderLeads": 0.5166666666666666, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0005557099194220616, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 972.5397300000001, "cpa": null, "imprReal": 168891, "imprYoY": 2774, "varImprYoY": 59.88356164383562, "clicksReal": 9140, "clicksYoY": 263, "varClicksYoY": 33.752851711026615, "ctr": 0.05411774458082432, "ctrYoY": 0.09480894015861571, "varCtrYoY": -0.42919154575206586, "cpc": 0.21280956892778996, "cpm": 11.516773895589465, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Criciúma", "sigla": "CRC", "cluster": "Azul", "regional": "Curitiba", "canal": "GOOGLE", "investReal": 3827.2318360000004, "investYoY": 3273.4958889999994, "varInvestYoY": 0.16915736746782928, "investPlan": 4135.485483870968, "aderInvest": 0.9254613154675057, "aderInvestYoY": 0.7915626597571528, "varAderInvestYoY": 0.16915736746782906, "sessReal": 5042, "sessYoY": 1039, "varSessYoY": 3.8527430221366696, "sessPlan": 465.9677419354838, "aderSess": 10.820491519556942, "leadsReal": 1, "leadsYoY": 28, "varLeadsYoY": -0.9642857142857143, "leadsPlan": 15.483870967741936, "aderLeads": 0.06458333333333333, "matrReal": 0, "matrYoY": 2, "varMatrYoY": -1.0, "txSessLead": 0.00019833399444664816, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0019249278152069298, "varTxSessMatrYoY": -1.0, "cpl": 3827.2318360000004, "cpa": null, "imprReal": 289136, "imprYoY": 17781, "varImprYoY": 15.260952702322705, "clicksReal": 12378, "clicksYoY": 1053, "varClicksYoY": 10.754985754985755, "ctr": 0.04281030380167119, "ctrYoY": 0.05922051628142399, "varCtrYoY": -0.2771035024714953, "cpc": 0.309196302795282, "cpm": 13.236787657019535, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Criciúma", "sigla": "CRC", "cluster": "Azul", "regional": "Curitiba", "canal": "META", "investReal": 916.79, "investYoY": 788.55, "varInvestYoY": 0.16262760763426543, "investPlan": 756.5564516129032, "aderInvest": 1.2117932482704956, "aderInvestYoY": 1.0422883822071567, "varAderInvestYoY": 0.16262760763426565, "sessReal": 0, "sessYoY": 385, "varSessYoY": -1.0, "sessPlan": 160.6451612903226, "aderSess": 0.0, "leadsReal": 0, "leadsYoY": 2, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 1, "varMatrYoY": -1.0, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0025974025974025974, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 100633, "imprYoY": 101092, "varImprYoY": -0.004540418628575904, "clicksReal": 2370, "clicksYoY": 802, "varClicksYoY": 1.9551122194513715, "ctr": 0.023550922659564953, "ctrYoY": 0.00793336762552922, "varCtrYoY": 1.9685908647141401, "cpc": 0.386831223628692, "cpm": 9.110232229984199, "reachReal": 62961, "reachYoY": 69400, "varReachYoY": -0.09278097982708933, "freqReal": 1.598338654087451, "freqYoY": 1.456657060518732, "varFreqYoY": 0.09726489330183496}, {"unidade": "Criciúma", "sigla": "CRC", "cluster": "Azul", "regional": "Curitiba", "canal": "TIKTOK", "investReal": 70.99, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 378.2758064516129, "aderInvest": 0.18766730197713735, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 48, "sessYoY": 0, "varSessYoY": null, "sessPlan": 109.83870967741936, "aderSess": 0.4370044052863436, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 9072, "imprYoY": 0, "varImprYoY": null, "clicksReal": 60, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.006613756613756613, "ctrYoY": null, "varCtrYoY": null, "cpc": 1.1831666666666665, "cpm": 7.825176366843033, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Dom Silvério", "sigla": "DOM", "cluster": "Azul", "regional": "Belo Horizonte", "canal": "GOOGLE", "investReal": 1134.145661, "investYoY": 4197.7764579999985, "varInvestYoY": -0.7298222827376672, "investPlan": 1496.6854838709678, "aderInvest": 0.7577715379898593, "aderInvestYoY": 2.80471515441109, "varAderInvestYoY": -0.7298222827376672, "sessReal": 408, "sessYoY": 1523, "varSessYoY": -0.7321076822061721, "sessPlan": 909.6774193548387, "aderSess": 0.44851063829787235, "leadsReal": 1, "leadsYoY": 52, "varLeadsYoY": -0.9807692307692307, "leadsPlan": 19.354838709677423, "aderLeads": 0.05166666666666665, "matrReal": 0, "matrYoY": 12, "varMatrYoY": -1.0, "txSessLead": 0.0024509803921568627, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.007879185817465528, "varTxSessMatrYoY": -1.0, "cpl": 1134.145661, "cpa": null, "imprReal": 22482, "imprYoY": 22280, "varImprYoY": 0.009066427289048384, "clicksReal": 685, "clicksYoY": 1661, "varClicksYoY": -0.5875978326309452, "ctr": 0.03046881950004448, "ctrYoY": 0.07455116696588869, "varCtrYoY": -0.5913032519801379, "cpc": 1.655687096350365, "cpm": 50.446831287252024, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Dom Silvério", "sigla": "DOM", "cluster": "Azul", "regional": "Belo Horizonte", "canal": "META", "investReal": 0.0, "investYoY": 78.95, "varInvestYoY": -1.0, "investPlan": 0.0, "aderInvest": null, "aderInvestYoY": null, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 39, "varSessYoY": -1.0, "sessPlan": 0.0, "aderSess": null, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 0, "imprYoY": 7579, "varImprYoY": -1.0, "clicksReal": 0, "clicksYoY": 86, "varClicksYoY": -1.0, "ctr": null, "ctrYoY": 0.01134714342261512, "varCtrYoY": null, "cpc": null, "cpm": null, "reachReal": 0, "reachYoY": 7047, "varReachYoY": -1.0, "freqReal": null, "freqYoY": 1.0754931176387115, "varFreqYoY": null}, {"unidade": "Goiânia", "sigla": "GOI", "cluster": "Azul", "regional": "Brasília", "canal": "GOOGLE", "investReal": 6815.671592999998, "investYoY": 2474.30425, "varInvestYoY": 1.7545810475813544, "investPlan": 8176.06935483871, "aderInvest": 0.8336122526855023, "aderInvestYoY": 0.30262760045396053, "varAderInvestYoY": 1.7545810475813548, "sessReal": 5166, "sessYoY": 950, "varSessYoY": 4.437894736842106, "sessPlan": 1662.5806451612902, "aderSess": 3.1072176949941794, "leadsReal": 12, "leadsYoY": 20, "varLeadsYoY": -0.4, "leadsPlan": 42.096774193548384, "aderLeads": 0.2850574712643678, "matrReal": 0, "matrYoY": 2, "varMatrYoY": -1.0, "txSessLead": 0.0023228803716608595, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.002105263157894737, "varTxSessMatrYoY": -1.0, "cpl": 567.9726327499999, "cpa": null, "imprReal": 434330, "imprYoY": 11549, "varImprYoY": 36.60758507230063, "clicksReal": 15653, "clicksYoY": 949, "varClicksYoY": 15.494204425711274, "ctr": 0.03603941703313149, "ctrYoY": 0.08217161659018096, "varCtrYoY": -0.561412826853914, "cpc": 0.43542270446559755, "cpm": 15.692380431929633, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Goiânia", "sigla": "GOI", "cluster": "Azul", "regional": "Brasília", "canal": "META", "investReal": 1358.15, "investYoY": 919.98, "varInvestYoY": 0.4762820930889802, "investPlan": 1088.8790322580644, "aderInvest": 1.2472919027410554, "aderInvestYoY": 0.8448872397627036, "varAderInvestYoY": 0.4762820930889804, "sessReal": 431, "sessYoY": 269, "varSessYoY": 0.6022304832713754, "sessPlan": 230.3225806451613, "aderSess": 1.8712885154061623, "leadsReal": 0, "leadsYoY": 4, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 165376, "imprYoY": 47169, "varImprYoY": 2.5060315037418643, "clicksReal": 2570, "clicksYoY": 478, "varClicksYoY": 4.376569037656904, "ctr": 0.015540344427244583, "ctrYoY": 0.010133774300917976, "varCtrYoY": 0.533519887633263, "cpc": 0.5284630350194552, "cpm": 8.212497581269352, "reachReal": 129566, "reachYoY": 36522, "varReachYoY": 2.5476151360823613, "freqReal": 1.2763842366052822, "freqYoY": 1.291522917693445, "varFreqYoY": -0.011721573717947908}, {"unidade": "Ipanema", "sigla": "IPN", "cluster": "Azul", "regional": "Porto Alegre", "canal": "GOOGLE", "investReal": 5228.277547999999, "investYoY": 2798.4540780000007, "varInvestYoY": 0.8682734832427712, "investPlan": 5256.0, "aderInvest": 0.9947255608828004, "aderInvestYoY": 0.5324303801369864, "varAderInvestYoY": 0.8682734832427712, "sessReal": 1616, "sessYoY": 493, "varSessYoY": 2.2778904665314403, "sessPlan": 1031.1290322580646, "aderSess": 1.5672141404661346, "leadsReal": 2, "leadsYoY": 11, "varLeadsYoY": -0.8181818181818181, "leadsPlan": 5.806451612903226, "aderLeads": 0.34444444444444444, "matrReal": 0, "matrYoY": 1, "varMatrYoY": -1.0, "txSessLead": 0.0012376237623762376, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.002028397565922921, "varTxSessMatrYoY": -1.0, "cpl": 2614.1387739999996, "cpa": null, "imprReal": 47580, "imprYoY": 18529, "varImprYoY": 1.5678665875114683, "clicksReal": 2154, "clicksYoY": 1099, "varClicksYoY": 0.9599636032757053, "ctr": 0.04527112232030265, "ctrYoY": 0.05931242916509256, "varCtrYoY": -0.23673464470164896, "cpc": 2.4272412014856077, "cpm": 109.8839333333333, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Ipanema", "sigla": "IPN", "cluster": "Azul", "regional": "Porto Alegre", "canal": "META", "investReal": 540.89, "investYoY": 393.06999999999994, "varInvestYoY": 0.3760653318747298, "investPlan": 1854.9629032258063, "aderInvest": 0.2915907369680465, "aderInvestYoY": 0.2119018117917322, "varAderInvestYoY": 0.3760653318747298, "sessReal": 259, "sessYoY": 672, "varSessYoY": -0.6145833333333333, "sessPlan": 963.8709677419355, "aderSess": 0.2687081659973226, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 3.3870967741935485, "aderLeads": 0.0, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 57404, "imprYoY": 74250, "varImprYoY": -0.2268821548821549, "clicksReal": 1123, "clicksYoY": 923, "varClicksYoY": 0.21668472372697734, "ctr": 0.01956309664831719, "ctrYoY": 0.012430976430976431, "varCtrYoY": 0.573737731459969, "cpc": 0.4816473731077471, "cpm": 9.422514110514946, "reachReal": 32857, "reachYoY": 35600, "varReachYoY": -0.07705056179775283, "freqReal": 1.74708585689503, "freqYoY": 2.085674157303371, "varFreqYoY": -0.16233997972440306}, {"unidade": "Londrina", "sigla": "LON", "cluster": "Azul", "regional": "São Paulo", "canal": "GOOGLE", "investReal": 5309.842228, "investYoY": 3292.777866, "varInvestYoY": 0.6125722548209089, "investPlan": 8092.819354838712, "aderInvest": 0.6561177255025761, "aderInvestYoY": 0.40687648168388213, "varAderInvestYoY": 0.6125722548209089, "sessReal": 7244, "sessYoY": 1791, "varSessYoY": 3.044667783361251, "sessPlan": 1779.6774193548388, "aderSess": 4.0704005800253755, "leadsReal": 1, "leadsYoY": 12, "varLeadsYoY": -0.9166666666666666, "leadsPlan": 20.322580645161292, "aderLeads": 0.049206349206349205, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0001380452788514633, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 5309.842228, "cpa": null, "imprReal": 466481, "imprYoY": 22405, "varImprYoY": 19.820397232760545, "clicksReal": 18798, "clicksYoY": 923, "varClicksYoY": 19.366197183098592, "ctr": 0.04029746120420767, "ctrYoY": 0.04119616157107788, "varCtrYoY": -0.021815148125381434, "cpc": 0.28246846621981064, "cpm": 11.382762058904865, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Londrina", "sigla": "LON", "cluster": "Azul", "regional": "São Paulo", "canal": "META", "investReal": 1309.13, "investYoY": 835.91, "varInvestYoY": 0.5661135768204713, "investPlan": 1056.9387096774194, "aderInvest": 1.2386054063622574, "aderInvestYoY": 0.7908784041556411, "varAderInvestYoY": 0.5661135768204713, "sessReal": 0, "sessYoY": 701, "varSessYoY": -1.0, "sessPlan": 490.6451612903226, "aderSess": 0.0, "leadsReal": 0, "leadsYoY": 1, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 116518, "imprYoY": 52237, "varImprYoY": 1.2305645423741791, "clicksReal": 2475, "clicksYoY": 544, "varClicksYoY": 3.5496323529411766, "ctr": 0.021241353267306338, "ctrYoY": 0.010414074315140609, "varCtrYoY": 1.0396775195299286, "cpc": 0.5289414141414142, "cpm": 11.235431435486364, "reachReal": 67370, "reachYoY": 37186, "varReachYoY": 0.8117033292099176, "freqReal": 1.7295235267923408, "freqYoY": 1.404749099123326, "varFreqYoY": 0.23119746285774423}, {"unidade": "Londrina", "sigla": "LON", "cluster": "Azul", "regional": "São Paulo", "canal": "TIKTOK", "investReal": 110.51, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 603.9629032258065, "aderInvest": 0.18297481419762482, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 33, "sessYoY": 0, "varSessYoY": null, "sessPlan": 1049.032258064516, "aderSess": 0.03145756457564576, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 15291, "imprYoY": 0, "varImprYoY": null, "clicksReal": 83, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.00542802955987182, "ctrYoY": null, "varCtrYoY": null, "cpc": 1.3314457831325301, "cpm": 7.227127068210058, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Maringá", "sigla": "MGA", "cluster": "Azul", "regional": "São Paulo", "canal": "GOOGLE", "investReal": 4932.727265999999, "investYoY": 2162.4290699999997, "varInvestYoY": 1.2811047698318259, "investPlan": 6187.6935483870975, "aderInvest": 0.7971835106937024, "aderInvestYoY": 0.3494725543678007, "varAderInvestYoY": 1.2811047698318263, "sessReal": 6096, "sessYoY": 717, "varSessYoY": 7.502092050209205, "sessPlan": 1203.8709677419354, "aderSess": 5.063665594855306, "leadsReal": 1, "leadsYoY": 11, "varLeadsYoY": -0.9090909090909091, "leadsPlan": 14.516129032258066, "aderLeads": 0.06888888888888889, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.00016404199475065617, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 4932.727265999999, "cpa": null, "imprReal": 385889, "imprYoY": 13737, "varImprYoY": 27.091213510955814, "clicksReal": 16616, "clicksYoY": 659, "varClicksYoY": 24.213960546282244, "ctr": 0.04305901437978279, "ctrYoY": 0.047972628667103445, "varCtrYoY": -0.1024253709634656, "cpc": 0.2968661089311506, "cpm": 12.782762053336578, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Maringá", "sigla": "MGA", "cluster": "Azul", "regional": "São Paulo", "canal": "META", "investReal": 0.0, "investYoY": 624.49, "varInvestYoY": -1.0, "investPlan": 0.0, "aderInvest": null, "aderInvestYoY": null, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 343, "varSessYoY": -1.0, "sessPlan": 0.0, "aderSess": null, "leadsReal": 0, "leadsYoY": 1, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 0, "imprYoY": 41341, "varImprYoY": -1.0, "clicksReal": 0, "clicksYoY": 473, "varClicksYoY": -1.0, "ctr": null, "ctrYoY": 0.011441426187078203, "varCtrYoY": null, "cpc": null, "cpm": null, "reachReal": 0, "reachYoY": 31106, "varReachYoY": -1.0, "freqReal": null, "freqYoY": 1.3290361988040893, "varFreqYoY": null}, {"unidade": "Padre Eustáquio", "sigla": "EST", "cluster": "Azul", "regional": "Belo Horizonte", "canal": "GOOGLE", "investReal": 1736.2258880000004, "investYoY": 1266.890844, "varInvestYoY": 0.37046210115320743, "investPlan": 1645.3887096774192, "aderInvest": 1.055207123877974, "aderInvestYoY": 0.7699644689116505, "varAderInvestYoY": 0.37046210115320766, "sessReal": 3019, "sessYoY": 354, "varSessYoY": 7.528248587570621, "sessPlan": 598.0645161290323, "aderSess": 5.047950377562028, "leadsReal": 6, "leadsYoY": 12, "varLeadsYoY": -0.5, "leadsPlan": 10.645161290322582, "aderLeads": 0.5636363636363636, "matrReal": 0, "matrYoY": 5, "varMatrYoY": -1.0, "txSessLead": 0.001987413050679033, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.014124293785310734, "varTxSessMatrYoY": -1.0, "cpl": 289.3709813333334, "cpa": null, "imprReal": 308892, "imprYoY": 5301, "varImprYoY": 57.270514997170345, "clicksReal": 10338, "clicksYoY": 342, "varClicksYoY": 29.228070175438596, "ctr": 0.033468008235888275, "ctrYoY": 0.06451612903225806, "varCtrYoY": -0.48124587234373173, "cpc": 0.16794601354227126, "cpm": 5.620818564417338, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Padre Eustáquio", "sigla": "EST", "cluster": "Azul", "regional": "Belo Horizonte", "canal": "META", "investReal": 0.0, "investYoY": 26.76, "varInvestYoY": -1.0, "investPlan": 0.0, "aderInvest": null, "aderInvestYoY": null, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 12, "varSessYoY": -1.0, "sessPlan": 0.0, "aderSess": null, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 0, "imprYoY": 1688, "varImprYoY": -1.0, "clicksReal": 0, "clicksYoY": 31, "varClicksYoY": -1.0, "ctr": null, "ctrYoY": 0.018364928909952605, "varCtrYoY": null, "cpc": null, "cpm": null, "reachReal": 0, "reachYoY": 1533, "varReachYoY": -1.0, "freqReal": null, "freqYoY": 1.101108936725375, "varFreqYoY": null}, {"unidade": "Pio X", "sigla": "PIOX", "cluster": "Azul", "regional": "Recife", "canal": "GOOGLE", "investReal": 1388.8001530000006, "investYoY": 1334.385199, "varInvestYoY": 0.040779044942029996, "investPlan": 1469.9854838709675, "aderInvest": 0.9447713383827583, "aderInvestYoY": 0.9077539973293571, "varAderInvestYoY": 0.040779044942029996, "sessReal": 1733, "sessYoY": 76, "varSessYoY": 21.80263157894737, "sessPlan": 473.7096774193549, "aderSess": 3.6583588695948244, "leadsReal": 1, "leadsYoY": 4, "varLeadsYoY": -0.75, "leadsPlan": 6.290322580645162, "aderLeads": 0.15897435897435896, "matrReal": 0, "matrYoY": 2, "varMatrYoY": -1.0, "txSessLead": 0.0005770340450086555, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.02631578947368421, "varTxSessMatrYoY": -1.0, "cpl": 1388.8001530000006, "cpa": null, "imprReal": 172598, "imprYoY": 13879, "varImprYoY": 11.435910368182146, "clicksReal": 6063, "clicksYoY": 557, "varClicksYoY": 9.885098743267504, "ctr": 0.03512786938434976, "ctrYoY": 0.040132574392967794, "varCtrYoY": -0.12470431025962248, "cpc": 0.22906154593435601, "cpm": 8.04644406655929, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Pio XII (PR)", "sigla": "PIO", "cluster": "Azul", "regional": "Curitiba", "canal": "GOOGLE", "investReal": 3387.947995999999, "investYoY": 2999.0163919999995, "varInvestYoY": 0.12968638818963796, "investPlan": 4309.587096774193, "aderInvest": 0.786142133787235, "aderInvestYoY": 0.6958941366435824, "varAderInvestYoY": 0.12968638818963796, "sessReal": 3377, "sessYoY": 758, "varSessYoY": 3.455145118733509, "sessPlan": 637.258064516129, "aderSess": 5.299266008605416, "leadsReal": 3, "leadsYoY": 17, "varLeadsYoY": -0.8235294117647058, "leadsPlan": 24.193548387096776, "aderLeads": 0.12399999999999999, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0008883624518803672, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 1129.3159986666662, "cpa": null, "imprReal": 232271, "imprYoY": 13143, "varImprYoY": 16.672601384767557, "clicksReal": 9858, "clicksYoY": 782, "varClicksYoY": 11.60613810741688, "ctr": 0.042441802894033265, "ctrYoY": 0.05949935326789926, "varCtrYoY": -0.2866846349919704, "cpc": 0.3436749843781699, "cpm": 14.586185946588248, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Pio XII (PR)", "sigla": "PIO", "cluster": "Azul", "regional": "Curitiba", "canal": "META", "investReal": 900.26, "investYoY": 752.7800000000001, "varInvestYoY": 0.19591381280055242, "investPlan": 699.4645161290323, "aderInvest": 1.287070293404171, "aderInvestYoY": 1.0762232860160308, "varAderInvestYoY": 0.19591381280055242, "sessReal": 437, "sessYoY": 253, "varSessYoY": 0.7272727272727273, "sessPlan": 74.51612903225806, "aderSess": 5.864502164502165, "leadsReal": 0, "leadsYoY": 4, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 136397, "imprYoY": 65455, "varImprYoY": 1.0838285845237188, "clicksReal": 2288, "clicksYoY": 586, "varClicksYoY": 2.9044368600682593, "ctr": 0.016774562490377353, "ctrYoY": 0.008952715606141625, "varCtrYoY": 0.8736842795352382, "cpc": 0.3934702797202797, "cpm": 6.60029179527409, "reachReal": 86505, "reachYoY": 43515, "varReachYoY": 0.9879351947604273, "freqReal": 1.5767527888561355, "freqYoY": 1.5041939561070896, "varFreqYoY": 0.04823768401305828}, {"unidade": "Pio XII (PR)", "sigla": "PIO", "cluster": "Azul", "regional": "Curitiba", "canal": "TIKTOK", "investReal": 108.51, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 599.5403225806451, "aderInvest": 0.18098866066744684, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 53, "sessYoY": 0, "varSessYoY": null, "sessPlan": 73.54838709677419, "aderSess": 0.7206140350877193, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 11936, "imprYoY": 0, "varImprYoY": null, "clicksReal": 81, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.006786193029490617, "ctrYoY": null, "varCtrYoY": null, "cpc": 1.3396296296296297, "cpm": 9.09098525469169, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Pio X", "sigla": "PIOX", "cluster": "Azul", "regional": "Recife", "canal": "META", "investReal": 230.22, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 296.39032258064515, "aderInvest": 0.7767460084239397, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 168, "sessYoY": 0, "varSessYoY": null, "sessPlan": 370.6451612903226, "aderSess": 0.4532637075718015, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 53679, "imprYoY": 0, "varImprYoY": null, "clicksReal": 769, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.014325900258946702, "ctrYoY": null, "varCtrYoY": null, "cpc": 0.29937581274382313, "cpm": 4.288828033309116, "reachReal": 45954, "reachYoY": 0, "varReachYoY": null, "freqReal": 1.16810288549419, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Ribeirão Preto", "sigla": "RIB", "cluster": "Azul", "regional": "São Paulo", "canal": "GOOGLE", "investReal": 5695.813816000001, "investYoY": 2222.88816, "varInvestYoY": 1.562348353144317, "investPlan": 6249.154838709677, "aderInvest": 0.911453462589522, "aderInvestYoY": 0.35571020679957754, "varAderInvestYoY": 1.562348353144317, "sessReal": 6749, "sessYoY": 579, "varSessYoY": 10.656303972366148, "sessPlan": 1864.8387096774193, "aderSess": 3.6190797439889293, "leadsReal": 2, "leadsYoY": 15, "varLeadsYoY": -0.8666666666666667, "leadsPlan": 53.70967741935484, "aderLeads": 0.037237237237237236, "matrReal": 0, "matrYoY": 3, "varMatrYoY": -1.0, "txSessLead": 0.000296340198547933, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0051813471502590676, "varTxSessMatrYoY": -1.0, "cpl": 2847.9069080000004, "cpa": null, "imprReal": 472579, "imprYoY": 10302, "varImprYoY": 44.872549019607845, "clicksReal": 16969, "clicksYoY": 567, "varClicksYoY": 28.92768959435626, "ctr": 0.035907223977366745, "ctrYoY": 0.05503785672684915, "varCtrYoY": -0.3475904384218127, "cpc": 0.335659957333962, "cpm": 12.052617268223939, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Ribeirão Preto", "sigla": "RIB", "cluster": "Azul", "regional": "São Paulo", "canal": "META", "investReal": 1148.95, "investYoY": 525.83, "varInvestYoY": 1.1850217750984156, "investPlan": 1030.6983870967742, "aderInvest": 1.1147295992538726, "aderInvestYoY": 0.5101686454377161, "varAderInvestYoY": 1.1850217750984156, "sessReal": 0, "sessYoY": 309, "varSessYoY": -1.0, "sessPlan": 454.8387096774194, "aderSess": 0.0, "leadsReal": 0, "leadsYoY": 6, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 1, "varMatrYoY": -1.0, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.003236245954692557, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 114450, "imprYoY": 30776, "varImprYoY": 2.718806862490252, "clicksReal": 3154, "clicksYoY": 428, "varClicksYoY": 6.369158878504673, "ctr": 0.027557885539536916, "ctrYoY": 0.01390694047309592, "varCtrYoY": 0.9815922555252057, "cpc": 0.364283449587825, "cpm": 10.038881607688948, "reachReal": 77729, "reachYoY": 23092, "varReachYoY": 2.3660575090940585, "freqReal": 1.4724234198304365, "freqYoY": 1.332755932790577, "varFreqYoY": 0.10479599722915367}, {"unidade": "São Francisco (SC)", "sigla": "SFR", "cluster": "Azul", "regional": "Curitiba", "canal": "GOOGLE", "investReal": 3878.1929720000007, "investYoY": 2755.3760000000007, "varInvestYoY": 0.40750045438444693, "investPlan": 3769.3451612903223, "aderInvest": 1.0288771142073967, "aderInvestYoY": 0.730995937516314, "varAderInvestYoY": 0.40750045438444693, "sessReal": 4354, "sessYoY": 926, "varSessYoY": 3.7019438444924404, "sessPlan": 800.8064516129032, "aderSess": 5.4370191339375635, "leadsReal": 9, "leadsYoY": 16, "varLeadsYoY": -0.4375, "leadsPlan": 18.870967741935488, "aderLeads": 0.47692307692307684, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0020670647680293983, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 430.9103302222223, "cpa": null, "imprReal": 249035, "imprYoY": 13292, "varImprYoY": 17.735705687631658, "clicksReal": 11235, "clicksYoY": 869, "varClicksYoY": 11.928653624856157, "ctr": 0.04511414058264902, "ctrYoY": 0.0653776707794162, "varCtrYoY": -0.3099457346092397, "cpc": 0.3451885155318203, "cpm": 15.572883217218466, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "São Francisco (SC)", "sigla": "SFR", "cluster": "Azul", "regional": "Curitiba", "canal": "META", "investReal": 691.2399999999999, "investYoY": 791.5099999999999, "varInvestYoY": -0.12668191178885924, "investPlan": 742.6064516129032, "aderInvest": 0.9308295107033637, "aderInvestYoY": 1.0658539234083957, "varAderInvestYoY": -0.12668191178885924, "sessReal": 0, "sessYoY": 390, "varSessYoY": -1.0, "sessPlan": 106.93548387096774, "aderSess": 0.0, "leadsReal": 0, "leadsYoY": 3, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 122682, "imprYoY": 72265, "varImprYoY": 0.6976683041583063, "clicksReal": 2103, "clicksYoY": 577, "varClicksYoY": 2.6447140381282495, "ctr": 0.017141879004254904, "ctrYoY": 0.007984501487580432, "varCtrYoY": 1.1468940836091521, "cpc": 0.3286923442700903, "cpm": 5.634404395102785, "reachReal": 83246, "reachYoY": 50586, "varReachYoY": 0.6456331791404737, "freqReal": 1.4737284674338706, "freqYoY": 1.4285573083461827, "varFreqYoY": 0.03162012389967184}, {"unidade": "São Francisco (SC)", "sigla": "SFR", "cluster": "Azul", "regional": "Curitiba", "canal": "TIKTOK", "investReal": 105.39, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 636.5177419354839, "aderInvest": 0.16557276106638694, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 39, "sessYoY": 0, "varSessYoY": null, "sessPlan": 78.38709677419355, "aderSess": 0.49753086419753084, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 7545, "imprYoY": 0, "varImprYoY": null, "clicksReal": 66, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.00874751491053678, "ctrYoY": null, "varCtrYoY": null, "cpc": 1.596818181818182, "cpm": 13.968190854870775, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Taguatinga", "sigla": "TGT", "cluster": "Azul", "regional": "Brasília", "canal": "GOOGLE", "investReal": 774.6523060000001, "investYoY": 1265.0593739999997, "varInvestYoY": -0.38765537656100535, "investPlan": 816.6725806451614, "aderInvest": 0.9485469750778631, "aderInvestYoY": 1.549041077148223, "varAderInvestYoY": -0.38765537656100546, "sessReal": 2523, "sessYoY": 153, "varSessYoY": 15.49019607843137, "sessPlan": 339.19354838709677, "aderSess": 7.438231098430813, "leadsReal": 1, "leadsYoY": 7, "varLeadsYoY": -0.8571428571428572, "leadsPlan": 4.838709677419356, "aderLeads": 0.2066666666666666, "matrReal": 0, "matrYoY": 1, "varMatrYoY": -1.0, "txSessLead": 0.00039635354736424893, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.006535947712418301, "varTxSessMatrYoY": -1.0, "cpl": 774.6523060000001, "cpa": null, "imprReal": 196582, "imprYoY": 8557, "varImprYoY": 21.973238284445483, "clicksReal": 7275, "clicksYoY": 361, "varClicksYoY": 19.15235457063712, "ctr": 0.0370074574477826, "ctrYoY": 0.04218768259904172, "varCtrYoY": -0.12278999063524731, "cpc": 0.10648141663230241, "cpm": 3.9406064949995425, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Taguatinga", "sigla": "TGT", "cluster": "Azul", "regional": "Brasília", "canal": "META", "investReal": 0.0, "investYoY": 397.51000000000005, "varInvestYoY": -1.0, "investPlan": 0.0, "aderInvest": null, "aderInvestYoY": null, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 631, "varSessYoY": -1.0, "sessPlan": 0.0, "aderSess": null, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 0, "imprYoY": 227013, "varImprYoY": -1.0, "clicksReal": 0, "clicksYoY": 1583, "varClicksYoY": -1.0, "ctr": null, "ctrYoY": 0.006973168937461732, "varCtrYoY": null, "cpc": null, "cpm": null, "reachReal": 0, "reachYoY": 50652, "varReachYoY": -1.0, "freqReal": null, "freqYoY": 4.481817104951434, "varFreqYoY": null}, {"unidade": "Asa Norte", "sigla": "ASA_NORTE", "cluster": "Esmeralda", "regional": "Brasília", "canal": "GOOGLE", "investReal": 5283.2629389999975, "investYoY": 3227.2219040000004, "varInvestYoY": 0.6370931705847758, "investPlan": 5469.783870967742, "aderInvest": 0.9658997619708978, "aderInvestYoY": 0.5900090351154997, "varAderInvestYoY": 0.6370931705847758, "sessReal": 8786, "sessYoY": 395, "varSessYoY": 21.243037974683546, "sessPlan": 1644.6774193548385, "aderSess": 5.342081004216927, "leadsReal": 1, "leadsYoY": 12, "varLeadsYoY": -0.9166666666666666, "leadsPlan": 26.12903225806452, "aderLeads": 0.0382716049382716, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.00011381743683132256, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 5283.2629389999975, "cpa": null, "imprReal": 715232, "imprYoY": 32780, "varImprYoY": 20.81915802318487, "clicksReal": 24095, "clicksYoY": 1143, "varClicksYoY": 20.080489938757655, "ctr": 0.03368836964789047, "ctrYoY": 0.03486882245271507, "varCtrYoY": -0.033854105811155, "cpc": 0.21926801987964298, "cpm": 7.386782105666409, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Asa Norte", "sigla": "ASA_NORTE", "cluster": "Esmeralda", "regional": "Brasília", "canal": "META", "investReal": 0.0, "investYoY": 754.02, "varInvestYoY": -1.0, "investPlan": 0.0, "aderInvest": null, "aderInvestYoY": null, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 1322, "varSessYoY": -1.0, "sessPlan": 0.0, "aderSess": null, "leadsReal": 0, "leadsYoY": 1, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 0, "imprYoY": 238187, "varImprYoY": -1.0, "clicksReal": 0, "clicksYoY": 2703, "varClicksYoY": -1.0, "ctr": null, "ctrYoY": 0.011348226393547926, "varCtrYoY": null, "cpc": null, "cpm": null, "reachReal": 0, "reachYoY": 80488, "varReachYoY": -1.0, "freqReal": null, "freqYoY": 2.959285856276712, "varFreqYoY": null}, {"unidade": "Asa Sul", "sigla": "ASA_SUL", "cluster": "Esmeralda", "regional": "Brasília", "canal": "GOOGLE", "investReal": 10930.11963, "investYoY": 6390.66723, "varInvestYoY": 0.7103252659894794, "investPlan": 11127.991935483871, "aderInvest": 0.9822185074691764, "aderInvestYoY": 0.5742875504449328, "varAderInvestYoY": 0.7103252659894794, "sessReal": 13305, "sessYoY": 1784, "varSessYoY": 6.457959641255606, "sessPlan": 1382.9032258064517, "aderSess": 9.62106368089573, "leadsReal": 4, "leadsYoY": 40, "varLeadsYoY": -0.9, "leadsPlan": 72.58064516129032, "aderLeads": 0.05511111111111111, "matrReal": 0, "matrYoY": 5, "varMatrYoY": -1.0, "txSessLead": 0.0003006388575723412, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.002802690582959641, "varTxSessMatrYoY": -1.0, "cpl": 2732.5299075, "cpa": null, "imprReal": 1014219, "imprYoY": 22941, "varImprYoY": 43.209886229894074, "clicksReal": 34573, "clicksYoY": 1498, "varClicksYoY": 22.07943925233645, "ctr": 0.034088298483858026, "ctrYoY": 0.06529793818926813, "varCtrYoY": -0.4779575063296483, "cpc": 0.3161461148873398, "cpm": 10.77688312879171, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Asa Sul", "sigla": "ASA_SUL", "cluster": "Esmeralda", "regional": "Brasília", "canal": "META", "investReal": 2355.32, "investYoY": 1636.2900000000002, "varInvestYoY": 0.43942699643706185, "investPlan": 2042.9322580645162, "aderInvest": 1.1529114539663894, "aderInvestYoY": 0.8009516681430392, "varAderInvestYoY": 0.43942699643706207, "sessReal": 884, "sessYoY": 739, "varSessYoY": 0.19621109607577814, "sessPlan": 311.1290322580645, "aderSess": 2.8412649040953863, "leadsReal": 0, "leadsYoY": 2, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 772034, "imprYoY": 94334, "varImprYoY": 7.184048169270888, "clicksReal": 2985, "clicksYoY": 1149, "varClicksYoY": 1.597911227154047, "ctr": 0.003866410028573871, "ctrYoY": 0.012180125935505756, "varCtrYoY": -0.682564035130124, "cpc": 0.7890519262981575, "cpm": 3.0507982809047274, "reachReal": 687686, "reachYoY": 69633, "varReachYoY": 8.875863455545502, "freqReal": 1.1226548162969727, "freqYoY": 1.3547312337541109, "varFreqYoY": -0.1713080880360517}, {"unidade": "Asa Sul", "sigla": "ASA_SUL", "cluster": "Esmeralda", "regional": "Brasília", "canal": "TIKTOK", "investReal": 306.21000000000004, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 2282.5354838709677, "aderInvest": 0.13415344565890225, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 164, "sessYoY": 0, "varSessYoY": null, "sessPlan": 552.0967741935484, "aderSess": 0.29704937189599767, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 99393, "imprYoY": 0, "varImprYoY": null, "clicksReal": 333, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.0033503365428148866, "ctrYoY": null, "varCtrYoY": null, "cpc": 0.9195495495495497, "cpm": 3.0808004587848243, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Natal", "sigla": "NAT", "cluster": "Esmeralda", "regional": "Recife", "canal": "GOOGLE", "investReal": 6829.344161999999, "investYoY": 2183.7710270000002, "varInvestYoY": 2.12731695656845, "investPlan": 6041.26935483871, "aderInvest": 1.1304485466336784, "aderInvestYoY": 0.3614755275314657, "varAderInvestYoY": 2.12731695656845, "sessReal": 8467, "sessYoY": 124, "varSessYoY": 67.28225806451613, "sessPlan": 1061.6129032258066, "aderSess": 7.975600121543603, "leadsReal": 10, "leadsYoY": 3, "varLeadsYoY": 2.3333333333333335, "leadsPlan": 9.677419354838712, "aderLeads": 1.0333333333333332, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0011810558639423646, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 682.9344162, "cpa": null, "imprReal": 607281, "imprYoY": 14940, "varImprYoY": 39.647991967871484, "clicksReal": 24001, "clicksYoY": 844, "varClicksYoY": 27.437203791469194, "ctr": 0.03952206639101174, "ctrYoY": 0.05649263721552878, "varCtrYoY": -0.3004032323676358, "cpc": 0.28454415074371897, "cpm": 11.245772816867314, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Natal", "sigla": "NAT", "cluster": "Esmeralda", "regional": "Recife", "canal": "META", "investReal": 3390.77, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 4700.5306451612905, "aderInvest": 0.7213589817759078, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 175, "sessYoY": 0, "varSessYoY": null, "sessPlan": 3000.0000000000005, "aderSess": 0.05833333333333333, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 1361264, "imprYoY": 0, "varImprYoY": null, "clicksReal": 4553, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.003344685527568495, "ctrYoY": null, "varCtrYoY": null, "cpc": 0.7447331429826488, "cpm": 2.4908981652346642, "reachReal": 1087604, "reachYoY": 0, "varReachYoY": null, "freqReal": 1.2516173165968496, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Natal", "sigla": "NAT", "cluster": "Esmeralda", "regional": "Recife", "canal": "TIKTOK", "investReal": 0.0, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 2671.732258064516, "aderInvest": 0.0, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 0, "varSessYoY": null, "sessPlan": 3663.8709677419356, "aderSess": 0.0, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 0, "imprYoY": 0, "varImprYoY": null, "clicksReal": 0, "clicksYoY": 0, "varClicksYoY": null, "ctr": null, "ctrYoY": null, "varCtrYoY": null, "cpc": null, "cpm": null, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Nazaré", "sigla": "NSN", "cluster": "Esmeralda", "regional": "Recife", "canal": "GOOGLE", "investReal": 3045.0160739999997, "investYoY": 2121.9380730000003, "varInvestYoY": 0.4350164657232196, "investPlan": 4077.525291290323, "aderInvest": 0.7467804259863736, "aderInvestYoY": 0.5203985067934473, "varAderInvestYoY": 0.4350164657232194, "sessReal": 6063, "sessYoY": 333, "varSessYoY": 17.207207207207208, "sessPlan": 329.0322580645161, "aderSess": 18.426764705882356, "leadsReal": 6, "leadsYoY": 13, "varLeadsYoY": -0.5384615384615384, "leadsPlan": 10.64516129032258, "aderLeads": 0.5636363636363637, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0009896091044037606, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 507.50267899999994, "cpa": null, "imprReal": 695444, "imprYoY": 21935, "varImprYoY": 30.70476407567814, "clicksReal": 22341, "clicksYoY": 873, "varClicksYoY": 24.59106529209622, "ctr": 0.03212480084665336, "ctrYoY": 0.03979940733986779, "varCtrYoY": -0.1928321803306512, "cpc": 0.13629721471733583, "cpm": 4.378520878747964, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Penha", "sigla": "PEN", "cluster": "Esmeralda", "regional": "Belo Horizonte", "canal": "GOOGLE", "investReal": 2292.6311560000004, "investYoY": 2651.5613919999996, "varInvestYoY": -0.1353656140427011, "investPlan": 2173.971870967742, "aderInvest": 1.0545817940962767, "aderInvestYoY": 1.219685234850651, "varAderInvestYoY": -0.13536561404270098, "sessReal": 529, "sessYoY": 530, "varSessYoY": -0.0018867924528301883, "sessPlan": 269.0322580645161, "aderSess": 1.966306954436451, "leadsReal": 3, "leadsYoY": 25, "varLeadsYoY": -0.88, "leadsPlan": 17.903225806451612, "aderLeads": 0.16756756756756758, "matrReal": 0, "matrYoY": 2, "varMatrYoY": -1.0, "txSessLead": 0.005671077504725898, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0037735849056603774, "varTxSessMatrYoY": -1.0, "cpl": 764.2103853333334, "cpa": null, "imprReal": 8664, "imprYoY": 7241, "varImprYoY": 0.19651981770473692, "clicksReal": 729, "clicksYoY": 550, "varClicksYoY": 0.32545454545454544, "ctr": 0.08414127423822715, "ctrYoY": 0.07595635961883718, "varCtrYoY": 0.10775812138000496, "cpc": 3.1448987050754464, "cpm": 264.61578439519855, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Penha", "sigla": "PEN", "cluster": "Esmeralda", "regional": "Belo Horizonte", "canal": "META", "investReal": 588.7299999999999, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 597.6130577419356, "aderInvest": 0.9851357703335666, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 444, "sessYoY": 0, "varSessYoY": null, "sessPlan": 663.8709677419355, "aderSess": 0.668804664723032, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 94976, "imprYoY": 0, "varImprYoY": null, "clicksReal": 2078, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.021879211590296495, "ctrYoY": null, "varCtrYoY": null, "cpc": 0.2833156881616939, "cpm": 6.198723888140161, "reachReal": 76579, "reachYoY": 0, "varReachYoY": null, "freqReal": 1.2402355737212551, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Rosário", "sigla": "ROS", "cluster": "Esmeralda", "regional": "Porto Alegre", "canal": "GOOGLE", "investReal": 8879.986926999998, "investYoY": 4784.095773999999, "varInvestYoY": 0.8561473989002961, "investPlan": 8836.15003016129, "aderInvest": 1.004961085618632, "aderInvestYoY": 0.5414231036899532, "varAderInvestYoY": 0.8561473989002963, "sessReal": 9072, "sessYoY": 1404, "varSessYoY": 5.461538461538462, "sessPlan": 1424.032258064516, "aderSess": 6.370642201834863, "leadsReal": 10, "leadsYoY": 30, "varLeadsYoY": -0.6666666666666667, "leadsPlan": 41.12903225806452, "aderLeads": 0.24313725490196075, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0011022927689594356, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 887.9986926999998, "cpa": null, "imprReal": 780890, "imprYoY": 40374, "varImprYoY": 18.341407836726606, "clicksReal": 26342, "clicksYoY": 2163, "varClicksYoY": 11.17845584835876, "ctr": 0.033733304306624495, "ctrYoY": 0.05357408233021251, "varCtrYoY": -0.3703428441628953, "cpc": 0.3371037478930984, "cpm": 11.371623310581512, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Rosário", "sigla": "ROS", "cluster": "Esmeralda", "regional": "Porto Alegre", "canal": "META", "investReal": 1646.8900000000003, "investYoY": 1364.4200000000003, "varInvestYoY": 0.20702569590008935, "investPlan": 2759.165506935484, "aderInvest": 0.5968797434805381, "aderInvestYoY": 0.49450458719144313, "varAderInvestYoY": 0.20702569590008935, "sessReal": 0, "sessYoY": 2592, "varSessYoY": -1.0, "sessPlan": 350.80645161290323, "aderSess": 0.0, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 625686, "imprYoY": 268044, "varImprYoY": 1.3342660160272195, "clicksReal": 2316, "clicksYoY": 4679, "varClicksYoY": -0.5050224406924557, "ctr": 0.003701537192777208, "ctrYoY": 0.017456089298771845, "varCtrYoY": -0.7879515205597833, "cpc": 0.7110924006908464, "cpm": 2.6321349686584012, "reachReal": 561771, "reachYoY": 83502, "varReachYoY": 5.727635266221168, "freqReal": 1.1137741179234955, "freqYoY": 3.210030897463534, "varFreqYoY": -0.6530332094922934}, {"unidade": "Rosário", "sigla": "ROS", "cluster": "Esmeralda", "regional": "Porto Alegre", "canal": "TIKTOK", "investReal": 51.96, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 891.2042753225807, "aderInvest": 0.05830313143548659, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 38, "sessYoY": 0, "varSessYoY": null, "sessPlan": 457.741935483871, "aderSess": 0.08301620859760395, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 5248, "imprYoY": 0, "varImprYoY": null, "clicksReal": 67, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.012766768292682926, "ctrYoY": null, "varCtrYoY": null, "cpc": 0.7755223880597015, "cpm": 9.900914634146341, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "São José - Barra", "sigla": "SJB", "cluster": "Esmeralda", "regional": "Belo Horizonte", "canal": "GOOGLE", "investReal": 5627.425363000001, "investYoY": 2162.36303, "varInvestYoY": 1.602442459904617, "investPlan": 5526.185936129033, "aderInvest": 1.0183199458073038, "aderInvestYoY": 0.3912939331018395, "varAderInvestYoY": 1.6024424599046165, "sessReal": 6223, "sessYoY": 247, "varSessYoY": 24.194331983805668, "sessPlan": 958.5483870967741, "aderSess": 6.492108362779741, "leadsReal": 10, "leadsYoY": 6, "varLeadsYoY": 0.6666666666666667, "leadsPlan": 19.838709677419356, "aderLeads": 0.5040650406504065, "matrReal": 0, "matrYoY": 2, "varMatrYoY": -1.0, "txSessLead": 0.0016069419893941829, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.008097165991902834, "varTxSessMatrYoY": -1.0, "cpl": 562.7425363000001, "cpa": null, "imprReal": 554402, "imprYoY": 4020, "varImprYoY": 136.91094527363185, "clicksReal": 17938, "clicksYoY": 244, "varClicksYoY": 72.51639344262296, "ctr": 0.03235558313281698, "ctrYoY": 0.06069651741293532, "varCtrYoY": -0.4669285074019498, "cpc": 0.31371531737094444, "cpm": 10.150442031233656, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "São José - Barra", "sigla": "SJB", "cluster": "Esmeralda", "regional": "Belo Horizonte", "canal": "META", "investReal": 1046.8700000000001, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 965.8773309677421, "aderInvest": 1.083853991014686, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 460, "sessYoY": 0, "varSessYoY": null, "sessPlan": 221.61290322580646, "aderSess": 2.0756914119359533, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 131030, "imprYoY": 0, "varImprYoY": null, "clicksReal": 1951, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.014889719911470655, "ctrYoY": null, "varCtrYoY": null, "cpc": 0.5365812403895439, "cpm": 7.989544379149813, "reachReal": 83788, "reachYoY": 0, "varReachYoY": null, "freqReal": 1.5638277557645486, "freqYoY": null, "varFreqYoY": null}, {"unidade": "São José - Barra", "sigla": "SJB", "cluster": "Esmeralda", "regional": "Belo Horizonte", "canal": "TIKTOK", "investReal": 0.0, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 689.9123791935484, "aderInvest": 0.0, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 0, "varSessYoY": null, "sessPlan": 180.0, "aderSess": 0.0, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 0, "imprYoY": 0, "varImprYoY": null, "clicksReal": 0, "clicksYoY": 0, "varClicksYoY": null, "ctr": null, "ctrYoY": null, "varCtrYoY": null, "cpc": null, "cpm": null, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "São José - Tijuca", "sigla": "SJT", "cluster": "Esmeralda", "regional": "Belo Horizonte", "canal": "GOOGLE", "investReal": 5231.459392999999, "investYoY": 1970.0411049999996, "varInvestYoY": 1.6555077352053527, "investPlan": 7261.015935483871, "aderInvest": 0.7204858713275055, "aderInvestYoY": 0.27131755700639665, "varAderInvestYoY": 1.6555077352053527, "sessReal": 1044, "sessYoY": 236, "varSessYoY": 3.423728813559322, "sessPlan": 525.0, "aderSess": 1.9885714285714287, "leadsReal": 15, "leadsYoY": 4, "varLeadsYoY": 2.75, "leadsPlan": 11.129032258064516, "aderLeads": 1.3478260869565217, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.014367816091954023, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 348.76395953333326, "cpa": null, "imprReal": 28490, "imprYoY": 6286, "varImprYoY": 3.5322939866369714, "clicksReal": 1784, "clicksYoY": 268, "varClicksYoY": 5.656716417910448, "ctr": 0.06261846261846261, "ctrYoY": 0.04263442570792237, "varCtrYoY": 0.4687300597748356, "cpc": 2.932432395179372, "cpm": 183.6244083187083, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "São Luís (PE)", "sigla": "SLU_PE", "cluster": "Esmeralda", "regional": "Recife", "canal": "GOOGLE", "investReal": 3051.8477740000003, "investYoY": 2178.4560860000006, "varInvestYoY": 0.40092232917290005, "investPlan": 4043.6401935483873, "aderInvest": 0.7547278263949428, "aderInvestYoY": 0.5387363815098384, "varAderInvestYoY": 0.40092232917290005, "sessReal": 6565, "sessYoY": 593, "varSessYoY": 10.070826306913997, "sessPlan": 445.6451612903226, "aderSess": 14.731451321027867, "leadsReal": 1, "leadsYoY": 15, "varLeadsYoY": -0.9333333333333333, "leadsPlan": 6.774193548387098, "aderLeads": 0.1476190476190476, "matrReal": 0, "matrYoY": 1, "varMatrYoY": -1.0, "txSessLead": 0.0001523229246001523, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0016863406408094434, "varTxSessMatrYoY": -1.0, "cpl": 3051.8477740000003, "cpa": null, "imprReal": 644753, "imprYoY": 42034, "varImprYoY": 14.338844744730457, "clicksReal": 20763, "clicksYoY": 1415, "varClicksYoY": 13.673498233215549, "ctr": 0.03220302968733763, "ctrYoY": 0.033663225008326594, "varCtrYoY": -0.04337657252469962, "cpc": 0.1469849142224149, "cpm": 4.733359556295202, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "São Luís (PE)", "sigla": "SLU_PE", "cluster": "Esmeralda", "regional": "Recife", "canal": "META", "investReal": 0.0, "investYoY": 1095.12, "varInvestYoY": -1.0, "investPlan": 0.0, "aderInvest": null, "aderInvestYoY": null, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 1969, "varSessYoY": -1.0, "sessPlan": 0.0, "aderSess": null, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 0, "imprYoY": 75257, "varImprYoY": -1.0, "clicksReal": 0, "clicksYoY": 3042, "varClicksYoY": -1.0, "ctr": null, "ctrYoY": 0.04042148903092071, "varCtrYoY": null, "cpc": null, "cpm": null, "reachReal": 0, "reachYoY": 24751, "varReachYoY": -1.0, "freqReal": null, "freqYoY": 3.04056401761545, "varFreqYoY": null}, {"unidade": "Araçagy", "sigla": "ARG", "cluster": "Laranja", "regional": "Recife", "canal": "GOOGLE", "investReal": 1486.4220219999997, "investYoY": 753.1694910000002, "varInvestYoY": 0.9735558061790892, "investPlan": 1390.0112903225806, "aderInvest": 1.069359675240512, "aderInvestYoY": 0.5418441535285744, "varAderInvestYoY": 0.9735558061790892, "sessReal": 3700, "sessYoY": 5, "varSessYoY": 739.0, "sessPlan": 417.5806451612903, "aderSess": 8.860563924295095, "leadsReal": 2, "leadsYoY": 1, "varLeadsYoY": 1.0, "leadsPlan": 1.935483870967742, "aderLeads": 1.0333333333333332, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0005405405405405405, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 743.2110109999999, "cpa": null, "imprReal": 192775, "imprYoY": 3578, "varImprYoY": 52.87786472889883, "clicksReal": 10465, "clicksYoY": 133, "varClicksYoY": 77.6842105263158, "ctr": 0.054286084813902215, "ctrYoY": 0.037171604248183346, "varCtrYoY": 0.4604181313093392, "cpc": 0.1420374602962255, "cpm": 7.710657616392166, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Cascavel", "sigla": "CAS", "cluster": "Laranja", "regional": "Curitiba", "canal": "GOOGLE", "investReal": 3593.3293059999996, "investYoY": 2900.820010999999, "varInvestYoY": 0.2387288050875216, "investPlan": 3466.3064516129034, "aderInvest": 1.0366450157134812, "aderInvestYoY": 0.8368619599834346, "varAderInvestYoY": 0.2387288050875216, "sessReal": 5005, "sessYoY": 760, "varSessYoY": 5.5855263157894735, "sessPlan": 957.5806451612904, "aderSess": 5.226713828532929, "leadsReal": 2, "leadsYoY": 7, "varLeadsYoY": -0.7142857142857143, "leadsPlan": 15.967741935483872, "aderLeads": 0.12525252525252525, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0003996003996003996, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 1796.6646529999998, "cpa": null, "imprReal": 291037, "imprYoY": 12093, "varImprYoY": 23.066567435706606, "clicksReal": 12831, "clicksYoY": 779, "varClicksYoY": 15.471116816431323, "ctr": 0.044087177918958755, "ctrYoY": 0.06441743157198379, "varCtrYoY": -0.31560174252378914, "cpc": 0.28005060447354063, "cpm": 12.346640825736932, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Cascavel", "sigla": "CAS", "cluster": "Laranja", "regional": "Curitiba", "canal": "META", "investReal": 573.81, "investYoY": 559.44, "varInvestYoY": 0.02568640068640038, "investPlan": 493.56290322580645, "aderInvest": 1.1625873748811308, "aderInvestYoY": 1.1334725449251493, "varAderInvestYoY": 0.0256864006864006, "sessReal": 620, "sessYoY": 274, "varSessYoY": 1.2627737226277373, "sessPlan": 86.61290322580645, "aderSess": 7.1582867783985105, "leadsReal": 0, "leadsYoY": 2, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 1, "varMatrYoY": -1.0, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.0036496350364963502, "varTxSessMatrYoY": -1.0, "cpl": null, "cpa": null, "imprReal": 29534, "imprYoY": 46259, "varImprYoY": -0.3615512656996477, "clicksReal": 1503, "clicksYoY": 467, "varClicksYoY": 2.2184154175588864, "ctr": 0.050890499085799415, "ctrYoY": 0.010095332800103763, "varCtrYoY": 4.040992713511767, "cpc": 0.3817764471057884, "cpm": 19.428793932416873, "reachReal": 21572, "reachYoY": 34802, "varReachYoY": -0.3801505660594219, "freqReal": 1.3690895605414426, "freqYoY": 1.3292052180909144, "varFreqYoY": 0.03000615849809285}, {"unidade": "Champagnat (SP)", "sigla": "CHA", "cluster": "Laranja", "regional": "São Paulo", "canal": "GOOGLE", "investReal": 3438.3043740000007, "investYoY": 2970.467810000001, "varInvestYoY": 0.15749592115593392, "investPlan": 3492.7064516129035, "aderInvest": 0.9844240910690389, "aderInvestYoY": 0.8504773736791602, "varAderInvestYoY": 0.15749592115593392, "sessReal": 4205, "sessYoY": 707, "varSessYoY": 4.947666195190948, "sessPlan": 883.0645161290323, "aderSess": 4.761826484018265, "leadsReal": 1, "leadsYoY": 16, "varLeadsYoY": -0.9375, "leadsPlan": 11.612903225806452, "aderLeads": 0.08611111111111111, "matrReal": 0, "matrYoY": 1, "varMatrYoY": -1.0, "txSessLead": 0.00023781212841854935, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0014144271570014145, "varTxSessMatrYoY": -1.0, "cpl": 3438.3043740000007, "cpa": null, "imprReal": 374185, "imprYoY": 13101, "varImprYoY": 27.561560186245323, "clicksReal": 13401, "clicksYoY": 672, "varClicksYoY": 18.941964285714285, "ctr": 0.03581383540227428, "ctrYoY": 0.05129379436684223, "varCtrYoY": -0.3017900928494117, "cpc": 0.25657073158719507, "cpm": 9.188781950104897, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Champagnat (SP)", "sigla": "CHA", "cluster": "Laranja", "regional": "São Paulo", "canal": "META", "investReal": 748.4499999999999, "investYoY": 473.75, "varInvestYoY": 0.5798416886543534, "investPlan": 640.1177419354839, "aderInvest": 1.1692380182073356, "aderInvestYoY": 0.7400982178177906, "varAderInvestYoY": 0.5798416886543531, "sessReal": 437, "sessYoY": 205, "varSessYoY": 1.1317073170731708, "sessPlan": 91.45161290322581, "aderSess": 4.7784832451499115, "leadsReal": 0, "leadsYoY": 1, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 22277, "imprYoY": 27909, "varImprYoY": -0.20179870292737112, "clicksReal": 1012, "clicksYoY": 310, "varClicksYoY": 2.264516129032258, "ctr": 0.0454280199308704, "ctrYoY": 0.01110752803755061, "varCtrYoY": 3.0898406717763294, "cpc": 0.7395750988142292, "cpm": 33.59743232930825, "reachReal": 14403, "reachYoY": 21561, "varReachYoY": -0.331988312230416, "freqReal": 1.5466916614594182, "freqYoY": 1.2944204814247948, "varFreqYoY": 0.19489121475963}, {"unidade": "Diocesano", "sigla": "DIO", "cluster": "Laranja", "regional": "Belo Horizonte", "canal": "GOOGLE", "investReal": 1730.6228350000001, "investYoY": 1545.2969210000003, "varInvestYoY": 0.119928999716165, "investPlan": 1628.1967741935484, "aderInvest": 1.0629076671996134, "aderInvestYoY": 0.949084868298791, "varAderInvestYoY": 0.11992899971616522, "sessReal": 2023, "sessYoY": 144, "varSessYoY": 13.04861111111111, "sessPlan": 581.6129032258065, "aderSess": 3.4782584581253464, "leadsReal": 4, "leadsYoY": 6, "varLeadsYoY": -0.33333333333333337, "leadsPlan": 13.064516129032258, "aderLeads": 0.30617283950617286, "matrReal": 0, "matrYoY": 1, "varMatrYoY": -1.0, "txSessLead": 0.001977261492832427, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.006944444444444444, "varTxSessMatrYoY": -1.0, "cpl": 432.65570875000003, "cpa": null, "imprReal": 141142, "imprYoY": 4756, "varImprYoY": 28.676619007569386, "clicksReal": 5859, "clicksYoY": 291, "varClicksYoY": 19.1340206185567, "ctr": 0.04151138569667427, "ctrYoY": 0.06118587047939445, "varCtrYoY": -0.321552747857791, "cpc": 0.2953785347328896, "cpm": 12.261572281815477, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Diocesano", "sigla": "DIO", "cluster": "Laranja", "regional": "Belo Horizonte", "canal": "META", "investReal": 310.72999999999996, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 229.8774193548387, "aderInvest": 1.3517204120007857, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 0, "varSessYoY": null, "sessPlan": 375.0, "aderSess": 0.0, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 9459, "imprYoY": 0, "varImprYoY": null, "clicksReal": 472, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.04989956655037531, "ctrYoY": null, "varCtrYoY": null, "cpc": 0.6583262711864406, "cpm": 32.850195580928215, "reachReal": 6750, "reachYoY": 0, "varReachYoY": null, "freqReal": 1.4013333333333333, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Frei Rogério", "sigla": "FRR", "cluster": "Laranja", "regional": "Curitiba", "canal": "GOOGLE", "investReal": 1953.238842, "investYoY": 1785.716009, "varInvestYoY": 0.09381269594699582, "investPlan": 1918.0016129032258, "aderInvest": 1.0183718453935169, "aderInvestYoY": 0.9310294615951918, "varAderInvestYoY": 0.09381269594699582, "sessReal": 1753, "sessYoY": 190, "varSessYoY": 8.226315789473684, "sessPlan": 797.9032258064517, "aderSess": 2.1970082878512227, "leadsReal": 3, "leadsYoY": 1, "varLeadsYoY": 2.0, "leadsPlan": 3.3870967741935485, "aderLeads": 0.8857142857142857, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0017113519680547634, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 651.079614, "cpa": null, "imprReal": 114106, "imprYoY": 3973, "varImprYoY": 27.72036244651397, "clicksReal": 4582, "clicksYoY": 208, "varClicksYoY": 21.028846153846153, "ctr": 0.04015564475137153, "ctrYoY": 0.05235338535112006, "varCtrYoY": -0.2329885740519274, "cpc": 0.4262852121344391, "cpm": 17.11775754123359, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Frei Rogério", "sigla": "FRR", "cluster": "Laranja", "regional": "Curitiba", "canal": "META", "investReal": 0.0, "investYoY": 421.95000000000005, "varInvestYoY": -1.0, "investPlan": 0.0, "aderInvest": null, "aderInvestYoY": null, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 149, "varSessYoY": -1.0, "sessPlan": 0.0, "aderSess": null, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 0, "imprYoY": 51215, "varImprYoY": -1.0, "clicksReal": 0, "clicksYoY": 414, "varClicksYoY": -1.0, "ctr": null, "ctrYoY": 0.008083569266816363, "varCtrYoY": null, "cpc": null, "cpm": null, "reachReal": 0, "reachYoY": 33990, "varReachYoY": -1.0, "freqReal": null, "freqYoY": 1.5067666960870845, "varFreqYoY": null}, {"unidade": "Maceió", "sigla": "MAC", "cluster": "Laranja", "regional": "Recife", "canal": "GOOGLE", "investReal": 2346.8518559999998, "investYoY": 668.0137860000001, "varInvestYoY": 2.5131787774212184, "investPlan": 1916.2645161290325, "aderInvest": 1.2247014106073306, "aderInvestYoY": 0.3486020747017888, "varAderInvestYoY": 2.5131787774212184, "sessReal": 2509, "sessYoY": 201, "varSessYoY": 11.482587064676617, "sessPlan": 451.45161290322585, "aderSess": 5.557627724187209, "leadsReal": 1, "leadsYoY": 11, "varLeadsYoY": -0.9090909090909091, "leadsPlan": 1.935483870967742, "aderLeads": 0.5166666666666666, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.00039856516540454366, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 2346.8518559999998, "cpa": null, "imprReal": 165355, "imprYoY": 13146, "varImprYoY": 11.578350829149551, "clicksReal": 7569, "clicksYoY": 489, "varClicksYoY": 14.478527607361963, "ctr": 0.045774243294729525, "ctrYoY": 0.037197626654495664, "varCtrYoY": 0.2305689209662869, "cpc": 0.3100610194213238, "cpm": 14.192808539203531, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Maceió", "sigla": "MAC", "cluster": "Laranja", "regional": "Recife", "canal": "META", "investReal": 377.73999999999995, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 285.69677419354844, "aderInvest": 1.3221710362893206, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 300, "sessYoY": 0, "varSessYoY": null, "sessPlan": 603.3870967741935, "aderSess": 0.4971932638331997, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 29404, "imprYoY": 0, "varImprYoY": null, "clicksReal": 733, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.02492858114542239, "ctrYoY": null, "varCtrYoY": null, "cpc": 0.5153342428376534, "cpm": 12.846551489593251, "reachReal": 20982, "reachYoY": 0, "varReachYoY": null, "freqReal": 1.4013916690496617, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Palmas", "sigla": "PAL", "cluster": "Laranja", "regional": "Brasília", "canal": "GOOGLE", "investReal": 584.8802929999999, "investYoY": 481.03393700000004, "varInvestYoY": 0.21588155847723467, "investPlan": 534.1935483870968, "aderInvest": 1.0948846064613524, "aderInvestYoY": 0.9004862347222222, "varAderInvestYoY": 0.21588155847723467, "sessReal": 1224, "sessYoY": 71, "varSessYoY": 16.239436619718308, "sessPlan": 252.58064516129033, "aderSess": 4.845977011494253, "leadsReal": 2, "leadsYoY": 3, "varLeadsYoY": -0.33333333333333337, "leadsPlan": 6.290322580645162, "aderLeads": 0.31794871794871793, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0016339869281045752, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 292.44014649999997, "cpa": null, "imprReal": 73667, "imprYoY": 1924, "varImprYoY": 37.28846153846154, "clicksReal": 3356, "clicksYoY": 91, "varClicksYoY": 35.879120879120876, "ctr": 0.04555635494862014, "ctrYoY": 0.0472972972972973, "varCtrYoY": -0.03680849537203135, "cpc": 0.17427899076281286, "cpm": 7.939515563277993, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Pio XII (RS)", "sigla": "PIO_RS", "cluster": "Laranja", "regional": "Porto Alegre", "canal": "GOOGLE", "investReal": 1588.5804540000004, "investYoY": 464.3639620000001, "varInvestYoY": 2.4209813508310107, "investPlan": 1603.5435483870967, "aderInvest": 0.9906687321325656, "aderInvestYoY": 0.28958612472176043, "varAderInvestYoY": 2.4209813508310107, "sessReal": 1495, "sessYoY": 132, "varSessYoY": 10.325757575757576, "sessPlan": 537.5806451612904, "aderSess": 2.780978097809781, "leadsReal": 6, "leadsYoY": 5, "varLeadsYoY": 0.19999999999999996, "leadsPlan": 15.967741935483872, "aderLeads": 0.37575757575757573, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.004013377926421404, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 264.7634090000001, "cpa": null, "imprReal": 71769, "imprYoY": 3313, "varImprYoY": 20.662843344400844, "clicksReal": 3417, "clicksYoY": 210, "varClicksYoY": 15.271428571428572, "ctr": 0.04761108556619153, "ctrYoY": 0.06338665861756716, "varCtrYoY": -0.24887844532955938, "cpc": 0.464905020193152, "cpm": 22.13463269656816, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Santa Maria (RS)", "sigla": "STM_RS", "cluster": "Laranja", "regional": "Porto Alegre", "canal": "GOOGLE", "investReal": 1699.5103290000002, "investYoY": 903.584038, "varInvestYoY": 0.8808547490078618, "investPlan": 1861.7709677419355, "aderInvest": 0.9128460795912322, "aderInvestYoY": 0.48533576559952457, "varAderInvestYoY": 0.8808547490078618, "sessReal": 677, "sessYoY": 191, "varSessYoY": 2.5445026178010473, "sessPlan": 512.9032258064516, "aderSess": 1.319937106918239, "leadsReal": 1, "leadsYoY": 7, "varLeadsYoY": -0.8571428571428572, "leadsPlan": 12.580645161290324, "aderLeads": 0.07948717948717948, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0014771048744460858, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 1699.5103290000002, "cpa": null, "imprReal": 9259, "imprYoY": 7184, "varImprYoY": 0.2888363028953229, "clicksReal": 892, "clicksYoY": 431, "varClicksYoY": 1.0696055684454757, "ctr": 0.09633869748352954, "ctrYoY": 0.05999443207126949, "varCtrYoY": 0.6057939738321954, "cpc": 1.9052806378923768, "cpm": 183.5522549951399, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Santo Antônio", "sigla": "SANT", "cluster": "Laranja", "regional": "Brasília", "canal": "GOOGLE", "investReal": 1906.8380009999998, "investYoY": 1110.9398429999999, "varInvestYoY": 0.7164187719208484, "investPlan": 1850.5838709677419, "aderInvest": 1.0303980440523566, "aderInvestYoY": 0.6003185591469823, "varAderInvestYoY": 0.7164187719208486, "sessReal": 1401, "sessYoY": 252, "varSessYoY": 4.559523809523809, "sessPlan": 637.741935483871, "aderSess": 2.196813353566009, "leadsReal": 1, "leadsYoY": 2, "varLeadsYoY": -0.5, "leadsPlan": 1.935483870967742, "aderLeads": 0.5166666666666666, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0007137758743754461, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0, "varTxSessMatrYoY": null, "cpl": 1906.8380009999998, "cpa": null, "imprReal": 113332, "imprYoY": 5977, "varImprYoY": 17.961351848753555, "clicksReal": 4239, "clicksYoY": 330, "varClicksYoY": 11.845454545454546, "ctr": 0.0374033812162496, "ctrYoY": 0.05521164463777815, "varCtrYoY": -0.3225454256681095, "cpc": 0.4498320360934182, "cpm": 16.825239129283872, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "Santo Antônio", "sigla": "SANT", "cluster": "Laranja", "regional": "Brasília", "canal": "META", "investReal": 275.10999999999996, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 301.59193548387094, "aderInvest": 0.9121928262392572, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 0, "sessYoY": 0, "varSessYoY": null, "sessPlan": 603.8709677419355, "aderSess": 0.0, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": null, "txLeadMatr": null, "txSessMatr": null, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 34673, "imprYoY": 0, "varImprYoY": null, "clicksReal": 543, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.015660600467222334, "ctrYoY": null, "varCtrYoY": null, "cpc": 0.5066482504604051, "cpm": 7.934415827877598, "reachReal": 28319, "reachYoY": 0, "varReachYoY": null, "freqReal": 1.22437232953141, "freqYoY": null, "varFreqYoY": null}, {"unidade": "São Luís (SC)", "sigla": "SLU", "cluster": "Laranja", "regional": "Curitiba", "canal": "GOOGLE", "investReal": 4385.743273999999, "investYoY": 2307.7047479999997, "varInvestYoY": 0.900478506967131, "investPlan": 3631.4322580645157, "aderInvest": 1.2077172207357976, "aderInvestYoY": 0.6354805993902699, "varAderInvestYoY": 0.9004785069671308, "sessReal": 3007, "sessYoY": 787, "varSessYoY": 2.820838627700127, "sessPlan": 1594.354838709677, "aderSess": 1.8860293373798689, "leadsReal": 4, "leadsYoY": 9, "varLeadsYoY": -0.5555555555555556, "leadsPlan": 15.483870967741936, "aderLeads": 0.2583333333333333, "matrReal": 0, "matrYoY": 1, "varMatrYoY": -1.0, "txSessLead": 0.0013302294645826404, "txLeadMatr": 0.0, "txSessMatr": 0.0, "txSessMatrYoY": 0.0012706480304955528, "varTxSessMatrYoY": -1.0, "cpl": 1096.4358184999996, "cpa": null, "imprReal": 200894, "imprYoY": 13196, "varImprYoY": 14.223855713852682, "clicksReal": 10389, "clicksYoY": 802, "varClicksYoY": 11.953865336658355, "ctr": 0.05171383913904845, "ctrYoY": 0.0607759927250682, "varCtrYoY": -0.14910745476448461, "cpc": 0.4221525915872556, "cpm": 21.831131213475754, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}, {"unidade": "São Luís (SC)", "sigla": "SLU", "cluster": "Laranja", "regional": "Curitiba", "canal": "META", "investReal": 128.6, "investYoY": 597.47, "varInvestYoY": -0.7847590674008738, "investPlan": 401.1629032258065, "aderInvest": 0.32056802602112405, "aderInvestYoY": 1.4893450894777682, "varAderInvestYoY": -0.7847590674008738, "sessReal": 133, "sessYoY": 217, "varSessYoY": -0.3870967741935484, "sessPlan": 229.35483870967744, "aderSess": 0.5798874824191279, "leadsReal": 0, "leadsYoY": 1, "varLeadsYoY": -1.0, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 1, "varMatrYoY": -1.0, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": 0.004608294930875576, "varTxSessMatrYoY": -1.0, "cpl": null, "cpa": null, "imprReal": 9387, "imprYoY": 54371, "varImprYoY": -0.827352816758934, "clicksReal": 376, "clicksYoY": 424, "varClicksYoY": -0.1132075471698113, "ctr": 0.040055395760093745, "ctrYoY": 0.00779827481561862, "varCtrYoY": 4.136443214320889, "cpc": 0.34202127659574466, "cpm": 13.699797592415042, "reachReal": 7707, "reachYoY": 38408, "varReachYoY": -0.7993386794417829, "freqReal": 1.2179836512261581, "freqYoY": 1.4156165382212038, "varFreqYoY": -0.13960905489517783}, {"unidade": "São Luís (SC)", "sigla": "SLU", "cluster": "Laranja", "regional": "Curitiba", "canal": "TIKTOK", "investReal": 41.97, "investYoY": 0.0, "varInvestYoY": null, "investPlan": 260.94193548387096, "aderInvest": 0.1608403797656134, "aderInvestYoY": 0.0, "varAderInvestYoY": null, "sessReal": 14, "sessYoY": 0, "varSessYoY": null, "sessPlan": 162.09677419354838, "aderSess": 0.0863681592039801, "leadsReal": 0, "leadsYoY": 0, "varLeadsYoY": null, "leadsPlan": 0.0, "aderLeads": null, "matrReal": 0, "matrYoY": 0, "varMatrYoY": null, "txSessLead": 0.0, "txLeadMatr": null, "txSessMatr": 0.0, "txSessMatrYoY": null, "varTxSessMatrYoY": null, "cpl": null, "cpa": null, "imprReal": 3648, "imprYoY": 0, "varImprYoY": null, "clicksReal": 28, "clicksYoY": 0, "varClicksYoY": null, "ctr": 0.007675438596491228, "ctrYoY": null, "varCtrYoY": null, "cpc": 1.4989285714285714, "cpm": 11.504934210526315, "reachReal": 0, "reachYoY": 0, "varReachYoY": null, "freqReal": null, "freqYoY": null, "varFreqYoY": null}]}</script>
 <script>
-const DATA = JSON.parse(document.getElementById('report-data').textContent);
+/* =====================================================================
+   LISTA DE REPORTS
+   ---------------------------------------------------------------------
+   Para adicionar um novo report, copie um bloco { ... } abaixo e
+   preencha os campos. Não precisa se preocupar com ordem — a página
+   ordena automaticamente do mais recente para o mais antigo.
 
-const fmtMoney = v => v == null ? '<span class="na">—</span>' : 'R$ ' + Number(v).toLocaleString('pt-BR', {maximumFractionDigits: 0});
-const fmtInt = v => v == null ? '<span class="na">—</span>' : Number(v).toLocaleString('pt-BR');
-const fmtDec = (v, digits=2) => v == null || !isFinite(v) ? '<span class="na">—</span>' : Number(v).toLocaleString('pt-BR', {minimumFractionDigits: digits, maximumFractionDigits: digits});
-const fmtPct = (v, digits=1) => {
-  if (v == null || !isFinite(v)) return '<span class="na">n/d</span>';
-  return (v*100).toLocaleString('pt-BR', {maximumFractionDigits: digits, minimumFractionDigits: digits}) + '%';
-};
-const deltaClass = v => v == null ? 'flat' : (v > 0.001 ? 'pos' : (v < -0.001 ? 'neg' : 'flat'));
-const deltaSign = v => v == null ? '' : (v > 0 ? '↑ ' : (v < 0 ? '↓ ' : '— '));
-const clusterClass = c => {
-  const map = {Azul:'azul', Laranja:'laranja', Esmeralda:'esmeralda', Amarelo:'amarelo'};
-  return 'chip-' + (map[c] || 'sem');
-};
-const clusterColor = c => ({
-  Azul: '#2B6CB0', Laranja: '#C2570C', Esmeralda: '#1A8762', Amarelo: '#A8870A'
-}[c] || '#6B7180');
-
-// ---------------- HEADER META ----------------
-document.getElementById('meta-periodo').textContent = DATA.periodo;
-document.getElementById('meta-yoy').innerHTML = 'vs. mesmo período ' + DATA.periodoYoY.split('/').pop();
-document.getElementById('meta-gerado').textContent = DATA.geradoEm;
-
-// ---------------- HEADLINE ALERT (signature element) ----------------
-(function renderHeadline() {
-  const c = DATA.consolidado;
-  const slot = document.getElementById('headline-slot');
-  if (c.matrReal === 0 && c.matrYoY > 0) {
-    slot.innerHTML = `
-      <div class="headline-bar">
-        <span class="tag">Alerta</span>
-        <p><strong>Nenhuma matrícula nos primeiros 15 dias de julho, contra ${fmtInt(c.matrYoY)} no mesmo recorte de 2025.</strong> O volume de mídia disparou: impressões ${fmtPct(c.varImprYoY)} acima do ano anterior e clicks ${fmtPct(c.varClicksYoY)} acima, puxando sessões ${fmtPct(c.varSessYoY)} acima e a ${fmtPct(c.aderSess)} do plano. Os leads, porém, caíram ${fmtPct(Math.abs(c.varLeadsYoY))} frente a 2025 e cobrem só ${fmtPct(c.aderLeads)} da meta rateada. O funil está recebendo muito mais tráfego e convertendo bem menos, o que pede checagem imediata das páginas de captação antes da segunda quinzena do mês.</p>
-      </div>`;
-  } else if (Math.abs(c.varMatrYoY) > 0.15) {
-    const dir = c.varMatrYoY > 0 ? 'crescimento' : 'queda';
-    slot.innerHTML = `
-      <div class="headline-bar" style="border-left-color:${c.varMatrYoY>0?'var(--good)':'var(--bad)'}; background: linear-gradient(to right, ${c.varMatrYoY>0?'var(--good-bg)':'var(--bad-bg)'} 0%, var(--paper) 55%);">
-        <span class="tag" style="color:${c.varMatrYoY>0?'var(--good)':'var(--bad)'}; border-color:${c.varMatrYoY>0?'var(--good)':'var(--bad)'};">Destaque</span>
-        <p><strong>${dir.charAt(0).toUpperCase()+dir.slice(1)} de ${fmtPct(Math.abs(c.varMatrYoY))} em matrículas</strong> frente ao mesmo período do ano anterior.</p>
-      </div>`;
-  } else {
-    slot.style.display = 'none';
-  }
-})();
-
-// ---------------- KPI CARDS (Consolidado) ----------------
-function kpiCard(label, real, yoyOrPlan, varVal, fmt, subLabel) {
-  return `
-    <div class="kpi">
-      <div class="kpi-label">${label}</div>
-      <div class="kpi-value">${fmt(real)}</div>
-      <div class="kpi-sub">
-        <span class="delta ${deltaClass(varVal)}">${deltaSign(varVal)}${fmtPct(Math.abs(varVal ?? 0))}</span>
-        <span>${subLabel}</span>
-      </div>
-    </div>`;
-}
-
-(function renderKpis() {
-  const c = DATA.consolidado;
-  const grid = document.getElementById('kpi-consolidado');
-  grid.innerHTML =
-    kpiCard('Investimento Real', c.investReal, c.investYoY, c.varInvestYoY, fmtMoney, 'vs. YoY') +
-    kpiCard('Impressões', c.imprReal, c.imprYoY, c.varImprYoY, fmtInt, 'vs. YoY') +
-    kpiCard('Clicks', c.clicksReal, c.clicksYoY, c.varClicksYoY, fmtInt, 'vs. YoY') +
-    `<div class="kpi">
-      <div class="kpi-label-row">
-        <div class="kpi-label">Alcance (Meta)</div>
-        <span class="info-tip" data-tip="Soma do alcance reportado pelo Meta em cada unidade. Google e TikTok não reportam alcance nesta base, por isso o número cobre só o Meta. Além disso, somar o alcance de unidades diferentes não é o alcance único real: a mesma pessoa pode ter sido contada em mais de uma unidade, então esse total pode superar o alcance único de fato.">i</span>
-      </div>
-      <div class="kpi-value">${fmtInt(c.reachReal)}</div>
-      <div class="kpi-sub">
-        <span class="delta ${deltaClass(c.varReachYoY)}">${deltaSign(c.varReachYoY)}${fmtPct(Math.abs(c.varReachYoY ?? 0))}</span>
-        <span>vs. YoY</span>
-      </div>
-    </div>` +
-    `<div class="kpi">
-      <div class="kpi-label-row">
-        <div class="kpi-label">Frequência</div>
-        <span class="info-tip" data-tip="Calculada como Impressões totais (Google + Meta + TikTok) ÷ Alcance somado (só Meta, ver card ao lado). Por misturar impressões de todos os canais com um alcance que existe apenas no Meta, este número é uma aproximação direcional, não a frequência real por pessoa, e deve ser lido com essa ressalva.">i</span>
-      </div>
-      <div class="kpi-value">${fmtDec(c.freqReal, 2)}</div>
-      <div class="kpi-sub">
-        <span class="delta ${deltaClass(c.varFreqYoY)}">${deltaSign(c.varFreqYoY)}${fmtPct(Math.abs(c.varFreqYoY ?? 0))}</span>
-        <span>vs. YoY</span>
-      </div>
-    </div>` +
-    kpiCard('Sessões', c.sessReal, c.sessYoY, c.varSessYoY, fmtInt, 'vs. YoY') +
-    kpiCard('Leads', c.leadsReal, c.leadsYoY, c.varLeadsYoY, fmtInt, 'vs. YoY') +
-    kpiCard('Matrículas', c.matrReal, c.matrYoY, c.varMatrYoY, fmtInt, 'vs. YoY') +
-    `<div class="kpi">
-      <div class="kpi-label">Aderência ao Investimento</div>
-      <div class="kpi-value">${fmtPct(c.aderInvest)}</div>
-      <div class="kpi-sub"><span>Real ÷ Planejado rateado</span></div>
-    </div>` +
-    `<div class="kpi">
-      <div class="kpi-label">Aderência a Sessões</div>
-      <div class="kpi-value">${fmtPct(c.aderSess)}</div>
-      <div class="kpi-sub"><span>Real ÷ Planejado rateado</span></div>
-    </div>` +
-    `<div class="kpi">
-      <div class="kpi-label">CTR</div>
-      <div class="kpi-value">${fmtPct(c.ctr, 2)}</div>
-      <div class="kpi-sub"><span>Clicks ÷ Impressões</span></div>
-    </div>` +
-    `<div class="kpi">
-      <div class="kpi-label">CPL Médio</div>
-      <div class="kpi-value">${fmtMoney(c.cpl)}</div>
-      <div class="kpi-sub"><span>Investimento ÷ Leads</span></div>
-    </div>` +
-    `<div class="kpi">
-      <div class="kpi-label">CPC</div>
-      <div class="kpi-value">${fmtMoney(c.cpc)}</div>
-      <div class="kpi-sub"><span>Investimento ÷ Clicks</span></div>
-    </div>` +
-    `<div class="kpi">
-      <div class="kpi-label">CPM</div>
-      <div class="kpi-value">${fmtMoney(c.cpm)}</div>
-      <div class="kpi-sub"><span>Investimento ÷ Impressões × 1000</span></div>
-    </div>` +
-    `<div class="kpi">
-      <div class="kpi-label">Tx. Sessão → Matrícula</div>
-      <div class="kpi-value">${fmtPct(c.txSessMatr, 3)}</div>
-      <div class="kpi-sub"><span>Funil completo</span></div>
-    </div>` +
-    `<div class="kpi">
-      <div class="kpi-label">Aderência a Leads</div>
-      <div class="kpi-value">${fmtPct(c.aderLeads)}</div>
-      <div class="kpi-sub"><span>Real ÷ Planejado rateado</span></div>
-    </div>` +
-    `<div class="kpi">
-      <div class="kpi-label">Investimento Planejado</div>
-      <div class="kpi-value">${fmtMoney(c.investPlan)}</div>
-      <div class="kpi-sub"><span>Rateado até a data</span></div>
-    </div>` +
-    `<div class="kpi">
-      <div class="kpi-label">Unidades Analisadas</div>
-      <div class="kpi-value">${fmtInt(c.unidades)}</div>
-      <div class="kpi-sub"><span>Total na base do período</span></div>
-    </div>`;
-
-
-  const cardCount = (grid.innerHTML.match(/class="kpi"/g) || []).length;
-  const remainder = cardCount % 4;
-  if (remainder !== 0) {
-    grid.innerHTML += '<div class="kpi kpi-blank"></div>'.repeat(4 - remainder);
-  }
-})();
-
-// ---------------- FUNNEL (signature element) ----------------
-function renderFunnel(containerId, impr, clicks, sess, leads, matr) {
-  const max = impr || 1;
-  const wClicks = Math.max((clicks/max)*100, clicks>0?2:0);
-  const wSess = Math.max((sess/max)*100, sess>0?2:0);
-  const wLeads = Math.max((leads/max)*100, leads>0?1.5:0);
-  const wMatr = Math.max((matr/max)*100, matr>0?1:0);
-  const rateIC = impr>0 ? clicks/impr : 0;
-  const rateCS = clicks>0 ? sess/clicks : 0;
-  const rateSL = sess>0 ? leads/sess : 0;
-  const rateLM = leads>0 ? matr/leads : 0;
-  document.getElementById(containerId).innerHTML = `
-    <div class="funnel-stage">
-      <div class="funnel-name">Impressões</div>
-      <div class="funnel-track"><div class="funnel-fill stage-1" style="width:100%"></div></div>
-      <div class="funnel-val">${fmtInt(impr)}</div>
-    </div>
-    <div class="funnel-rate">↓ ${fmtPct(rateIC, 2)} viram clique (CTR)</div>
-    <div class="funnel-stage">
-      <div class="funnel-name">Clicks</div>
-      <div class="funnel-track"><div class="funnel-fill stage-2" style="width:${wClicks}%"></div></div>
-      <div class="funnel-val">${fmtInt(clicks)}</div>
-    </div>
-    <div class="funnel-rate">↓ ${fmtPct(rateCS, 1)} viram sessão</div>
-    <div class="funnel-stage">
-      <div class="funnel-name">Sessões</div>
-      <div class="funnel-track"><div class="funnel-fill stage-3" style="width:${wSess}%"></div></div>
-      <div class="funnel-val">${fmtInt(sess)}</div>
-    </div>
-    <div class="funnel-rate">↓ ${fmtPct(rateSL, 2)} convertem em lead</div>
-    <div class="funnel-stage">
-      <div class="funnel-name">Leads</div>
-      <div class="funnel-track"><div class="funnel-fill stage-4" style="width:${wLeads}%"></div></div>
-      <div class="funnel-val">${fmtInt(leads)}</div>
-    </div>
-    <div class="funnel-rate">↓ ${fmtPct(rateLM, 2)} convertem em matrícula</div>
-    <div class="funnel-stage">
-      <div class="funnel-name">Matrículas</div>
-      <div class="funnel-track"><div class="funnel-fill stage-5" style="width:${wMatr}%"></div></div>
-      <div class="funnel-val">${fmtInt(matr)}</div>
-    </div>`;
-}
-renderFunnel('funnel-consolidado', DATA.consolidado.imprReal, DATA.consolidado.clicksReal, DATA.consolidado.sessReal, DATA.consolidado.leadsReal, DATA.consolidado.matrReal);
-
-
-const clusterOrder = ['Azul','Laranja','Esmeralda','Amarelo','Sem cluster'].filter(c => DATA.porCluster[c]);
-
-
-try {
-  Chart.defaults.font.family = "'Inter', sans-serif";
-  Chart.defaults.color = '#545B6E';
-  Chart.defaults.font.size = 11.5;
-} catch (e) { console.warn('Chart.js não disponível:', e); }
-
-try {
-new Chart(document.getElementById('chart-consolidado-bars'), {
-  type: 'bar',
-  data: {
-    labels: ['Investimento (R$ mil)', 'Sessões (mil)'],
-    datasets: [
-      { label: 'Real', backgroundColor: '#2B4570', data: [DATA.consolidado.investReal/1000, DATA.consolidado.sessReal/1000] },
-      { label: 'Planejado (rateado)', backgroundColor: '#A9BBD4', data: [DATA.consolidado.investPlan/1000, DATA.consolidado.sessPlan/1000] },
-      { label: 'YoY (mesmo período)', backgroundColor: '#1A1D29', data: [DATA.consolidado.investYoY/1000, DATA.consolidado.sessYoY/1000] }
-    ]
+   Campos:
+   - tipo:    "semanal" ou "mensal"
+   - titulo:  nome curto do período (ex: "01 a 22 de julho")
+   - periodo: descrição maior, aparece embaixo do título
+   - arquivo: nome exato do arquivo .html (deve estar na mesma pasta
+              deste index.html quando publicado no GitHub Pages)
+   - data:    data de referência no formato "AAAA-MM-DD" (usada só
+              para ordenar — pode ser a última data do período)
+   - latest:  true no report mais recente de cada tipo (mostra a
+              etiqueta "Mais recente"); deixe false ou remova nos demais
+===================================================================== */
+const REPORTS = [
+  {
+    tipo: "semanal",
+    titulo: "01 a 22 de julho de 2026",
+    periodo: "Relatório Marista" ,
+    arquivo: "semanal_01_07_22_07.html",
+    data: "2026-07-07",
+    latest: true
   },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 14 } } },
-    scales: { y: { grid: { color: '#EEF0F3' } }, x: { grid: { display: false } } }
+  {
+    tipo: "mensal",
+    titulo: "Junho 2026",
+    periodo: "Consolidado do mês de junho",
+    arquivo: "mensal_junho_26.html",
+    data: "2026-06-30",
+    latest: false
   }
-});
 
-} catch (e) { console.warn('Gráfico consolidado-bars falhou:', e); }
+  // ↓↓↓ Adicione os próximos reports aqui, seguindo o mesmo formato ↓↓↓
 
-const canalLabels = Object.keys(DATA.porCanal);
-try {
-new Chart(document.getElementById('chart-canal-pizza'), {
-  type: 'doughnut',
-  data: {
-    labels: canalLabels,
-    datasets: [{
-      data: canalLabels.map(k => DATA.porCanal[k].investReal),
-      backgroundColor: ['#2B4570', '#C2570C', '#1A8762'],
-      borderWidth: 2, borderColor: '#fff'
-    }]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 14 } } }
+];
+/* ===================================================================== */
+
+const TIPO_LABEL = { semanal: "Reports Semanais", mensal: "Reports Mensais" };
+const TIPO_ICON  = { semanal: "S", mensal: "M" };
+
+function renderSections(filterText = "") {
+  const container = document.getElementById('sections');
+  const term = filterText.trim().toLowerCase();
+
+  const filtered = REPORTS.filter(r =>
+    !term ||
+    r.titulo.toLowerCase().includes(term) ||
+    (r.periodo || "").toLowerCase().includes(term) ||
+    r.tipo.toLowerCase().includes(term)
+  );
+
+  const order = ["semanal", "mensal"];
+  const groups = order
+    .map(tipo => ({ tipo, items: filtered.filter(r => r.tipo === tipo) }))
+    .filter(g => g.items.length > 0);
+
+  if (groups.length === 0) {
+    container.innerHTML = `<div class="empty-state">Nenhum report encontrado.</div>`;
+    return;
   }
-});
 
-} catch (e) { console.warn('Gráfico canal-pizza falhou:', e); }
+  container.innerHTML = groups.map(g => {
+    const sorted = [...g.items].sort((a, b) => new Date(b.data) - new Date(a.data));
+    const cards = sorted.map(r => `
+      <a class="card" href="${r.arquivo}">
+        <div class="card-icon ${r.tipo}">${TIPO_ICON[r.tipo]}</div>
+        <div class="card-body">
+          <p class="card-title">${r.titulo}</p>
+          <p class="card-period">${r.periodo || ''}</p>
+        </div>
+        ${r.latest ? '<span class="card-latest">Mais recente</span>' : ''}
+        <span class="card-arrow">→</span>
+      </a>
+    `).join('');
 
-try {
-new Chart(document.getElementById('chart-impr-clicks-canal'), {
-  type: 'bar',
-  data: {
-    labels: canalLabels,
-    datasets: [
-      { label: 'Impressões (mil)', backgroundColor: '#2B4570', data: canalLabels.map(k => DATA.porCanal[k].imprReal/1000), yAxisID: 'y' },
-      { label: 'Clicks', backgroundColor: '#C2570C', data: canalLabels.map(k => DATA.porCanal[k].clicksReal), yAxisID: 'y1' }
-    ]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 14 } } },
-    scales: {
-      y: { position: 'left', grid: { color: '#EEF0F3' }, title: { display: true, text: 'Impressões (mil)' } },
-      y1: { position: 'right', grid: { display: false }, title: { display: true, text: 'Clicks' } },
-      x: { grid: { display: false } }
-    }
-  }
-});
-
-} catch (e) { console.warn('Gráfico impr-clicks-canal falhou:', e); }
-
-try {
-new Chart(document.getElementById('chart-cluster-matr'), {
-  type: 'bar',
-  data: {
-    labels: clusterOrder,
-    datasets: [
-      { label: 'Real', backgroundColor: clusterOrder.map(clusterColor), data: clusterOrder.map(c => DATA.porCluster[c].matrReal) },
-      { label: 'YoY', backgroundColor: '#DDE1E8', data: clusterOrder.map(c => DATA.porCluster[c].matrYoY) }
-    ]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 14 } } },
-    scales: { y: { grid: { color: '#EEF0F3' }, beginAtZero: true }, x: { grid: { display: false } } }
-  }
-});
-
-} catch (e) { console.warn('Gráfico cluster-matr falhou:', e); }
-
-// ---------------- CLUSTER TAB (independente de Chart.js) ----------------
-(function renderClusterTab() {
-  const grid = document.getElementById('cluster-grid');
-  grid.innerHTML = clusterOrder.map(cl => {
-    const d = DATA.porCluster[cl];
     return `
-      <div class="cluster-card">
-        <div class="cluster-card-head">
-          <h4><span class="cluster-chip ${clusterClass(cl)}">${cl}</span></h4>
-          <span style="font-size:11px; color:var(--ink-faint);">${d.unidades} unidade${d.unidades!==1?'s':''}</span>
-        </div>
-        <div class="cluster-card-body">
-          <div class="mini-stat-row">
-            <div>
-              <div class="mini-stat-label">Investido</div>
-              <div class="mini-stat-value">${fmtMoney(d.investReal)}</div>
-              <span class="delta ${deltaClass(d.varInvestYoY)}" style="font-size:10px;">${deltaSign(d.varInvestYoY)}${fmtPct(Math.abs(d.varInvestYoY ?? 0))}</span>
-            </div>
-            <div>
-              <div class="mini-stat-label">Impressões</div>
-              <div class="mini-stat-value">${fmtInt(d.imprReal)}</div>
-              <span class="delta ${deltaClass(d.varImprYoY)}" style="font-size:10px;">${deltaSign(d.varImprYoY)}${fmtPct(Math.abs(d.varImprYoY ?? 0))}</span>
-            </div>
-            <div>
-              <div class="mini-stat-label">Clicks</div>
-              <div class="mini-stat-value">${fmtInt(d.clicksReal)}</div>
-              <span class="delta ${deltaClass(d.varClicksYoY)}" style="font-size:10px;">${deltaSign(d.varClicksYoY)}${fmtPct(Math.abs(d.varClicksYoY ?? 0))}</span>
-            </div>
-            <div>
-              <div class="mini-stat-label">Leads</div>
-              <div class="mini-stat-value">${fmtInt(d.leadsReal)}</div>
-              <span class="delta ${deltaClass(d.varLeadsYoY)}" style="font-size:10px;">${deltaSign(d.varLeadsYoY)}${fmtPct(Math.abs(d.varLeadsYoY ?? 0))}</span>
-            </div>
-            <div>
-              <div class="mini-stat-label">Matrículas</div>
-              <div class="mini-stat-value">${fmtInt(d.matrReal)}</div>
-              <span class="delta ${deltaClass(d.varMatrYoY)}" style="font-size:10px;">${deltaSign(d.varMatrYoY)}${fmtPct(Math.abs(d.varMatrYoY ?? 0))}</span>
-            </div>
-          </div>
-        </div>
-      </div>`;
+      <div class="section">
+        <p class="section-label">${TIPO_LABEL[g.tipo]} <span class="count">${g.items.length}</span></p>
+        <div class="card-list">${cards}</div>
+      </div>
+    `;
   }).join('');
-})();
+}
 
-try {
-new Chart(document.getElementById('chart-cluster-aderencia'), {
-  type: 'bar',
-  data: {
-    labels: clusterOrder,
-    datasets: [
-      { label: 'Aderência Investimento', backgroundColor: '#2B4570', data: clusterOrder.map(c => (DATA.porCluster[c].aderInvest||0)*100) },
-      { label: 'Aderência Sessões', backgroundColor: '#4A6A9C', data: clusterOrder.map(c => (DATA.porCluster[c].aderSess||0)*100) },
-      { label: 'Aderência Leads', backgroundColor: '#A9BBD4', data: clusterOrder.map(c => (DATA.porCluster[c].aderLeads||0)*100) }
-    ]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: {
-      legend: { position: 'bottom', labels: { boxWidth: 12, padding: 14 } },
-      tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(0) + '%' } }
-    },
-    scales: {
-      y: { grid: { color: '#EEF0F3' }, ticks: { callback: v => v + '%' } },
-      x: { grid: { display: false } }
-    }
-  }
+renderSections();
+
+document.getElementById('search-input').addEventListener('input', (e) => {
+  renderSections(e.target.value);
 });
-
-} catch (e) { console.warn('Gráfico cluster-aderencia falhou:', e); }
-
-// ---------------- UNIDADE TAB: pills + table (independente de Chart.js) ----------------
-(function renderUnidadeTab() {
-  const pillRow = document.getElementById('pill-row');
-  const pills = ['Todos', ...clusterOrder];
-  pillRow.innerHTML = pills.map((p,i) => `<button class="pill ${i===0?'active':''}" data-cluster="${p}">${p}</button>`).join('');
-
-  const tbody = document.querySelector('#tabela-unidades tbody');
-
-  function renderRows(filterCluster) {
-    const rows = DATA.unidades
-      .filter(u => filterCluster === 'Todos' || u.cluster === filterCluster)
-      .sort((a,b) => (b.investReal||0) - (a.investReal||0));
-
-    // Renderiza uma célula com o valor principal e, abaixo, o chip de variação YoY
-    function cell(mainHtml, varVal) {
-      if (varVal == null || !isFinite(varVal)) {
-        return `<td><div class="cell-main">${mainHtml}</div></td>`;
-      }
-      return `<td>
-        <div class="cell-main">${mainHtml}</div>
-        <div class="cell-delta"><span class="delta ${deltaClass(varVal)}">${deltaSign(varVal)}${fmtPct(Math.abs(varVal))}</span></div>
-      </td>`;
-    }
-
-    tbody.innerHTML = rows.map(u => `
-      <tr>
-        <td class="sticky-col"><div class="unit-name">${u.unidade}</div><div class="unit-sigla">${u.sigla||''}</div></td>
-        <td><span class="cluster-chip ${clusterClass(u.cluster)}">${u.cluster}</span></td>
-        <td><span class="canal-chip">${u.canal}</span></td>
-        ${cell(fmtMoney(u.investReal), u.varInvestYoY)}
-        ${cell(fmtPct(u.aderInvest), u.varAderInvestYoY)}
-        ${cell(fmtInt(u.imprReal), u.varImprYoY)}
-        ${cell(fmtInt(u.clicksReal), u.varClicksYoY)}
-        ${cell(fmtPct(u.ctr, 2), u.varCtrYoY)}
-        ${u.canal === 'META' ? cell(fmtInt(u.reachReal), u.varReachYoY) : `<td><div class="cell-main"><span class="na">n/a</span></div></td>`}
-        ${u.canal === 'META' ? cell(fmtDec(u.freqReal, 2), u.varFreqYoY) : `<td><div class="cell-main"><span class="na">n/a</span></div></td>`}
-        ${cell(fmtInt(u.sessReal), u.varSessYoY)}
-        ${cell(fmtInt(u.leadsReal), u.varLeadsYoY)}
-        ${cell(fmtPct(u.txSessMatr, 2), u.varTxSessMatrYoY)}
-        <td><div class="cell-main">${fmtInt(u.matrReal)}</div></td>
-        <td><div class="cell-main">${fmtMoney(u.cpl)}</div></td>
-      </tr>`).join('');
-  }
-
-  renderRows('Todos');
-
-  pillRow.addEventListener('click', e => {
-    const btn = e.target.closest('.pill');
-    if (!btn) return;
-    pillRow.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    renderRows(btn.dataset.cluster);
-  });
-})();
-
-// ---------------- SCROLL FADE + BOTÕES (tabela de unidades) ----------------
-(function initTableScrollFade() {
-  const scrollEl = document.getElementById('unidades-scroll');
-  const fadeEl = document.getElementById('scroll-fade-right');
-  const btnLeft = document.getElementById('scroll-left');
-  const btnRight = document.getElementById('scroll-right');
-  if (!scrollEl || !fadeEl) return;
-  function update() {
-    const hasMore = scrollEl.scrollWidth - scrollEl.clientWidth - scrollEl.scrollLeft > 4;
-    fadeEl.classList.toggle('show', hasMore);
-  }
-  scrollEl.addEventListener('scroll', update);
-  window.addEventListener('resize', update);
-  setTimeout(update, 200);
-  new MutationObserver(update).observe(scrollEl, { childList: true, subtree: true });
-
-  if (btnLeft) btnLeft.addEventListener('click', () => scrollEl.scrollBy({ left: -280, behavior: 'smooth' }));
-  if (btnRight) btnRight.addEventListener('click', () => scrollEl.scrollBy({ left: 280, behavior: 'smooth' }));
-})();
-
-// ---------------- TOOLTIPS (Alcance/Frequência info icons) ----------------
-(function initTooltips() {
-  const tip = document.createElement('div');
-  tip.className = 'global-tooltip';
-  document.body.appendChild(tip);
-
-  function place(anchor) {
-    const r = anchor.getBoundingClientRect();
-    tip.style.left = '0px';
-    tip.style.top = '0px';
-    const tw = tip.offsetWidth, th = tip.offsetHeight;
-    let left = r.left + r.width / 2 - tw / 2;
-    left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
-    let top = r.top - th - 10;
-    if (top < 8) top = r.bottom + 10;
-    tip.style.left = left + 'px';
-    tip.style.top = top + 'px';
-  }
-
-  document.addEventListener('mouseover', e => {
-    const t = e.target.closest('.info-tip');
-    if (!t) return;
-    tip.textContent = t.dataset.tip || '';
-    tip.classList.add('show');
-    place(t);
-  });
-  document.addEventListener('mouseout', e => {
-    const t = e.target.closest('.info-tip');
-    if (!t) return;
-    tip.classList.remove('show');
-  });
-  document.addEventListener('scroll', () => tip.classList.remove('show'), true);
-})();
-
-// ---------------- TABS ----------------
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
-  });
-});
-
-// ---------------- ANALYSIS SLOTS: copy / clear ----------------
-document.querySelectorAll('.analysis-slot').forEach(slot => {
-  const body = slot.querySelector('.analysis-body');
-  const copyBtn = slot.querySelector('[data-copy]');
-  const clearBtn = slot.querySelector('[data-clear]');
-
-  body.addEventListener('focus', () => {
-    if (body.querySelector('.analysis-placeholder')) body.innerHTML = '';
-  });
-
-  copyBtn.addEventListener('click', () => {
-    const text = body.innerText.trim();
-    navigator.clipboard.writeText(text).then(() => {
-      const orig = copyBtn.textContent;
-      copyBtn.textContent = 'Copiado!';
-      setTimeout(() => copyBtn.textContent = orig, 1500);
-    });
-  });
-
-  clearBtn.addEventListener('click', () => {
-    body.innerHTML = '<p class="analysis-placeholder">Clique aqui e cole o texto da análise.</p>';
-  });
-});
-
 </script>
 </body>
 </html>
