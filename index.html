@@ -222,29 +222,12 @@
 </div>
 
 <script>
-/* =====================================================================
-   LISTA DE REPORTS
-   ---------------------------------------------------------------------
-   Para adicionar um novo report, copie um bloco { ... } abaixo e
-   preencha os campos. Não precisa se preocupar com ordem — a página
-   ordena automaticamente do mais recente para o mais antigo.
 
-   Campos:
-   - tipo:    "semanal" ou "mensal"
-   - titulo:  nome curto do período (ex: "01 a 22 de julho")
-   - periodo: descrição maior, aparece embaixo do título
-   - arquivo: nome exato do arquivo .html (deve estar na mesma pasta
-              deste index.html quando publicado no GitHub Pages)
-   - data:    data de referência no formato "AAAA-MM-DD" (usada só
-              para ordenar — pode ser a última data do período)
-   - latest:  true no report mais recente de cada tipo (mostra a
-              etiqueta "Mais recente"); deixe false ou remova nos demais
-===================================================================== */
 const REPORTS = [
   {
     tipo: "semanal",
     titulo: "01 a 22 de julho de 2026",
-    periodo: "Relatório Marista" ,
+    periodo: "" ,
     arquivo: "semanal_01_07_22_07.html",
     data: "2026-07-07",
     latest: true
@@ -258,7 +241,7 @@ const REPORTS = [
     latest: false
   }
 
-  // ↓↓↓ Adicione os próximos reports aqui, seguindo o mesmo formato ↓↓↓
+  
 
 ];
 /* ===================================================================== */
